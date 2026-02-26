@@ -178,141 +178,117 @@
     </div>
   </section>
 
+<!-- ====================== OVERVIEW ====================== -->
 <section class="section">
-  <div class="container" style="margin-top: -6rem; margin-bottom: -4rem; max-width: 80%;">
-    <div class="columns is-centered m-6">
-      <div class="column is-full">
-        <!-- 修改1：使用table-cell布局保持等高 -->
-        <div class="box p-4" style="width: 80%; height: 90%; margin: 0 auto; display: flex; align-items: center;">
-          <div class="columns is-mobile is-vcentered" style="display: table-row; margin: 0rem auto;">
-            <!-- 图片列 -->
-            <div class="column is-half" style="display: table-cell; vertical-align: middle;">
-              <div style="text-align: right; padding-right: -1rem;">
-                <img src="website/img/teaser.png" alt="alphaone-teaser" 
-                     style="max-width: 90%; margin-right: -0.3rem;"/>
-              </div>
-            </div>
-            <!-- 文字列 -->
-            <div class="column is-half" style="display: table-cell; vertical-align: middle;">
-              <div style="text-align: left; padding-left: -1rem; padding-top: 1.7rem;">
-                <img src="website/img/teaser-caption.png" alt="alphaone-teaser" 
-                     style="max-width: 100%; margin-left: -0.5rem;"/>
-              </div>
-            </div>
-          </div>
+  <div class="container" style="margin-top: -4rem; max-width: 85%;">
+
+    <div class="box p-5" style="margin: 0 auto;">
+      <div class="columns is-vcentered">
+
+        <!-- 左侧图片 -->
+        <div class="column is-half has-text-centered">
+          <img src="static/images/figure1.png"
+               alt="MC-Search Example"
+               style="max-width: 95%;">
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- <p style="text-align: left; margin: 0; color:rgb(60, 56, 56);"> 
-                  <b>Figure 1.</b> <b>Conceptual illustration</b> of reasoning modulation strategies. 
-                  Our <span style="font-size: 0.9em;">\(\alpha\)1</span> employs a <i>slow-to-fast</i> reasoning schedule controlled by <span style="font-size: 0.9em;">\(\alpha\)</span>. 
-                  <span style="font-size: 0.9em;">\(\alpha\)1</span> scales more efficiently than <i>monotonously increasing</i> method s1 (<span style="color: #dbbf65; font-weight: bold; font-size: 1.0em;">yellow</span>) and generally outperforms <i>monotonously decreasing</i> (<span style="color: #a36ca0; font-weight: bold; font-size: 1.0em;">purple</span>) approaches.
-                </p> -->
-  <!-- Overview Section -->
-  <section class="section" id="overview" style="padding-top:1.5rem;">
-    <div class="container" style="max-width: 80%; margin: 0 auto;">
-      <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:1rem;">Overview</h1>
-      <br>
-      <div class="content has-text-justified" style="max-width: 85%; font-size: 1.2em; margin: 0 auto; line-height: 1.55;">
-        <p style="text-align:justify; color:rgb(31, 30, 30);">
-          We present <span class="alphaone">AlphaOne</span> (<img src="website/img/alphaone.png" width="25" height="25" style="display: inline-block; vertical-align: -2px;">), a universal framework for <b>modulating reasoning progress</b> in large reasoning models (LRMs) at test time.
-          <img src="website/img/alphaone.png" width="25" height="25" style="display: inline-block; vertical-align: -2px;"> first introduces <b><img src="website/img/alpha.png" width="14" height="14" style="display: inline-block; vertical-align: -1px;"> moment</b>, which represents the scaled thinking phase with a universal parameter <img src="website/img/alpha.png" width="14" height="14" style="display: inline-block; vertical-align: -1px;">. Within this scaled pre-<img src="website/img/alpha.png" width="14" height="14" style="display: inline-block; vertical-align: -1px;"> moment phase, it dynamically schedules slow thinking transitions by modeling the insertion of reasoning transition tokens as a Bernoulli stochastic process. 
-          After the <img src="website/img/alpha.png" width="14" height="14" style="display: inline-block; vertical-align: -1px;"> moment, <img src="website/img/alphaone.png" width="25" height="25" style="display: inline-block; vertical-align: -2px;"> deterministically terminates slow thinking with the end-of-thinking token, thereby fostering fast reasoning and efficient answer generation.
-        </p>
-        <p style="text-align:justify; color:rgb(31, 30, 30);">
-          This approach unifies and generalizes existing monotonic scaling methods by enabling <b>flexible and dense slow-to-fast reasoning modulation</b>,
-          while offering critical insights into the joint optimization of reasoning capabilities and computational efficiency.
-        </p>
-      </div>
 
-      <!-- Figure 1 -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-eight-fifths">
-          <figure class="table-figure">
-            <img class="figure-image" src="website/img/framework.png" alt="Figure 1. Overview of AlphaOne." style="max-width: 85%; text-align:center; margin-bottom:1rem; margin-top:1.5rem;"/>
-            <figcaption class="figure-caption" style="font-size: 1.1em;">
-              <b>Figure 2.</b> Overview of <span class="alphaone">AlphaOne</span> (<img src="website/img/alphaone.png" width="23" height="23" style="display: inline-block; vertical-align: -2px;">). Here <img src="website/img/point.svg" width="23" height="23" style="display: inline-block; vertical-align: -4px;"> represents <img src="website/img/alpha.png" width="13" height="13" style="display: inline-block; vertical-align: -1px;"> moment.
-            </figcaption>
-          </figure>
-
-          <p style="text-align:justify; color:rgb(31, 30, 30); font-size: 1.2em; margin-top:1rem; margin-bottom:1rem; line-height: 1.55; max-width: 85%; margin: 0 auto;">
-            <img src="website/img/alphaone.png" width="25" height="25" style="display: inline-block; vertical-align: -2px;"> applies dense reasoning modulation via a user-defined slow thinking scheduling in pre-<img src="website/img/alpha.png" width="14" height="14" style="display: inline-block; vertical-align: -1px;"> moment. 
-            In addition, <img src="website/img/alphaone.png" width="25" height="25" style="display: inline-block; vertical-align: -2px;"> utilizes a post-<img src="website/img/alpha.png" width="14" height="14" style="display: inline-block; vertical-align: -1px;"> moment modulation by replacing slow thinking transitioning tokens "<code style="background: none; padding: 0; color: rgb(31, 30, 30);">wait</code>" to "<code style="background: none; padding: 0; color: rgb(31, 30, 30);">&lt;/think&gt;</code>", which fosters fast thinking. 
-            Specifically, <img src="website/img/alpha.png" width="14" height="14" style="display: inline-block; vertical-align: -1px;"> determines when the slow-to-fast reasoning transition occurs. For example, reducing <img src="website/img/alpha.png" width="14" height="14" style="display: inline-block; vertical-align: -1px;"> from 1.4 to 1.0 shifts the <img src="website/img/alpha.png" width="14" height="14" style="display: inline-block; vertical-align: -1px;"> moment earlier, resulting in shorter slow reasoning phase and accelerating the annealing of <img src="website/img/pwait.png" width="45" height="45" style="display: inline-block; vertical-align: -2px;">.
+        <!-- 右侧文字 -->
+        <div class="column is-half">
+          <h2 class="title is-3">MC-SEARCH</h2>
+          <p style="font-size:1.15em; line-height:1.6;">
+            MC-SEARCH is the first benchmark for evaluating 
+            <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>
+            with structured long reasoning chains.
           </p>
 
-        </div>
-      </div>
-  </section> 
+          <p style="font-size:1.15em; line-height:1.6;">
+            Each example contains:
+          </p>
 
-  <section class="section" id="overview" style="padding-top:1.5rem;">
-    <div class="container" style="max-width: 80%; margin: 0 auto;">
-      <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:1rem;">Key Takeaways</h1>
-      <br>
-      <div class="content has-text-justified" style="max-width: 85%; font-size: 1.2em; margin: 0 auto; line-height: 1.55;">
-        <p style="text-align:justify; color:rgb(31, 30, 30);">
-          We present some insightful findings from evaluating three different <img src="website/img/alphaone.png" width="25" height="25" style="display: inline-block; vertical-align: -2px;"> LRMs, ranging from 1.5B to 32B across six reasoning benchmarks, including math, code generation, and scientific problem reasoning.
-        </p>
-        <p style="text-align:justify; color:rgb(31, 30, 30); margin-bottom: -0.1em;">
-          <span style="font-size:1.3em;">💡</span> <b>Slow thinking first</b>, then fast thinking, leads to better LRM reasoning.
-        </p>
-        <p style="text-align:justify; color:rgb(31, 30, 30); margin-bottom: -0.1em;">
-          <span style="font-size:1.3em;">💡</span> Slow thinking can bring <b>efficient</b> test-time scaling.
-        </p>
-        <p style="text-align:justify; color:rgb(31, 30, 30);">
-          <span style="font-size:1.3em;">💡</span> Slow thinking transitioning in <b>high frequency</b> is helpful.
-        </p>
-      </div>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-eight-fifths">
-          <figure class="table-figure">
-            <img class="figure-image" src="website/img/scheduling-plot.png" alt="Figure 2. Visualization of different scheduling." style="max-width: 85%; text-align:center; margin-bottom:1rem; margin-top:1.5rem;"/>
-            <figcaption class="figure-caption" style="font-size: 1.1em;">
-              <b>Figure 3.</b> Visualization of different scheduling strategies. Here <img src="website/img/point.svg" width="23" height="23" style="display: inline-block; vertical-align: -4px;"> represents <img src="website/img/alpha.png" width="13" height="13" style="display: inline-block; vertical-align: -1px;"> moment.
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-  </section> 
+          <ul style="font-size:1.1em; line-height:1.6;">
+            <li>• Step-wise sub-questions</li>
+            <li>• Explicit retrieval modality (image / text)</li>
+            <li>• Supporting fact grounding</li>
+            <li>• Intermediate reasoning states</li>
+          </ul>
 
-  <section class="section" id="leaderboard-findings" style="padding-top:1.5rem;">
-    <div class="container" style="max-width: 85%">
-      <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:3rem;">Experiments</h1>
-        <ul class="nav nav-tabs" id="myTab1" role="tablist">
-          <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="deepseek-1b-tab" data-bs-toggle="tab"
-                  data-bs-target="#deepseek-1b-content" type="button" role="tab"
-                  aria-controls="deepseek-1b-content" aria-selected="true" style="font-size: 1.1em;">DeepSeek-R1-Distill-Qwen-1.5B</button>
-          </li>
-          <li class="nav-item" role="presentation">
-              <button class="nav-link" id="deepseek-7b-tab" data-bs-toggle="tab"
-                  data-bs-target="#deepseek-7b-content" type="button" role="tab"
-                  aria-controls="deepseek-7b-content" aria-selected="false" style="font-size: 1.1em;">DeepSeek-R1-Distill-Qwen-7B</button>
-          </li>
-          <li class="nav-item" role="presentation">
-              <button class="nav-link" id="qwq-32b-tab" data-bs-toggle="tab"
-                  data-bs-target="#qwq-32b-content" type="button" role="tab"
-                  aria-controls="qwq-32b-content" aria-selected="false" style="font-size: 1.1em;">QwQ-32B</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="deepseek-1b-content" role="tabpanel"
-              aria-labelledby="deepseek-1b-tab">
-              <div id="deepseek-1-5b-main-table"></div> 
-          </div>
-          <div class="tab-pane fade" id="deepseek-7b-content" role="tabpanel"
-              aria-labelledby="deepseek-7b-tab">
-              <div id="deepseek-7b-main-table"></div>
-          </div>
-            <div class="tab-pane fade" id="qwq-32b-content" role="tabpanel"
-              aria-labelledby="qwq-32b-tab">
-              <div id="qwq-32b-main-table"></div>
-          </div>
-        </div> 
-  </section>
-  <br>
+          <p style="margin-top:1rem; font-size:1.1em;">
+            Average reasoning depth: <b>3.79 hops</b>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ====================== BENCHMARK DESIGN ====================== -->
+<section class="section" id="overview">
+  <div class="container" style="max-width: 85%; margin: 0 auto;">
+
+    <h1 class="title is-3 has-text-centered">
+      Benchmark Design
+    </h1>
+
+    <div class="content has-text-justified"
+         style="font-size:1.15em; line-height:1.65; margin-top:1.5rem;">
+
+      <p>
+        MC-SEARCH introduces five representative reasoning topologies
+        that simulate realistic agentic search behaviors across multimodal
+        knowledge bases containing 389K images and 784K documents.
+      </p>
+
+      <p>
+        Beyond answer accuracy, we evaluate:
+      </p>
+
+      <ul>
+        <li><b>Hit-per-Step (HPS)</b> – step-level retrieval fidelity</li>
+        <li><b>Rollout Deviation (RD)</b> – reasoning path alignment</li>
+        <li><b>Planning Accuracy</b> – sub-question correctness</li>
+      </ul>
+
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <img src="static/images/figure2.png"
+             alt="Benchmark Overview"
+             style="max-width: 85%; margin-top:2rem;">
+        <p style="font-size:1.05em; margin-top:0.5rem;">
+          <b>Figure.</b> Five reasoning topologies and unified agentic pipeline.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ====================== KEY FINDINGS ====================== -->
+<section class="section">
+  <div class="container" style="max-width: 85%; margin: 0 auto;">
+
+    <h1 class="title is-3 has-text-centered">
+      Key Findings
+    </h1>
+
+    <div class="content"
+         style="font-size:1.2em; line-height:1.7; margin-top:1.5rem;">
+
+      <p>💡 <b>Current MLLMs struggle with long multimodal search chains.</b></p>
+      <p>💡 Retrieval errors compound significantly after 3 hops.</p>
+      <p>💡 Process-level supervision improves planning and retrieval alignment.</p>
+      <p>💡 SEARCH-ALIGN substantially improves HPS and RD metrics.</p>
+
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Case Study -->
   <section class="section" id="case-study" style="padding-top:1.5rem;">
