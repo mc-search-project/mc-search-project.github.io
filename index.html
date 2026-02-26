@@ -178,116 +178,87 @@
     </div>
   </section>
 
-<!-- ====================== OVERVIEW ====================== -->
-<section class="section">
-  <div class="container" style="margin-top: -4rem; max-width: 85%;">
-
-    <div class="box p-5" style="margin: 0 auto;">
-      <div class="columns is-vcentered">
-
-        <!-- 左侧图片 -->
-        <div class="column is-half has-text-centered">
-          <img src="static/images/figure1.png"
-               alt="MC-Search Example"
-               style="max-width: 95%;">
+  
+  <section class="section">
+    <div class="container" style="margin-top: -6rem; margin-bottom: -4rem; max-width: 80%;">
+      <div class="columns is-centered m-6">
+        <div class="column is-full">
+          <div class="box p-4" style="width: 80%; height: 90%; margin: 0 auto; display: flex; align-items: center;">
+            <div class="columns is-mobile is-vcentered" style="display: table-row; margin: 0rem auto;">
+              
+              <div class="column is-half" style="display: table-cell; vertical-align: middle;">
+                <div style="text-align: right; padding-right: 1rem;">
+                  <img src="static/images/figure1.png" alt="MC-Search Teaser" 
+                       style="max-width: 95%; margin-right: -0.3rem;"/>
+                </div>
+              </div>
+              
+              <div class="column is-half" style="display: table-cell; vertical-align: middle;">
+                <div style="text-align: left; padding-left: 1rem;">
+                  <h2 class="title is-2" style="margin-bottom: 0.5rem;">MC-SEARCH</h2>
+                  <p class="subtitle is-4" style="color: #4a4a4a;">
+                    A Benchmark for <b>Multimodal Agentic RAG</b> with Structured Long Reasoning Chains.
+                  </p>
+                </div>
+              </div>
+  
+            </div>
+          </div>
         </div>
-
-        <!-- 右侧文字 -->
-        <div class="column is-half">
-          <h2 class="title is-3">MC-SEARCH</h2>
-          <p style="font-size:1.15em; line-height:1.6;">
-            MC-SEARCH is the first benchmark for evaluating 
-            <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>
-            with structured long reasoning chains.
-          </p>
-
-          <p style="font-size:1.15em; line-height:1.6;">
-            Each example contains:
-          </p>
-
-          <ul style="font-size:1.1em; line-height:1.6;">
-            <li>• Step-wise sub-questions</li>
-            <li>• Explicit retrieval modality (image / text)</li>
-            <li>• Supporting fact grounding</li>
-            <li>• Intermediate reasoning states</li>
-          </ul>
-
-          <p style="margin-top:1rem; font-size:1.1em;">
-            Average reasoning depth: <b>3.79 hops</b>
-          </p>
-        </div>
-
       </div>
     </div>
-
-  </div>
-</section>
-
-
-<!-- ====================== BENCHMARK DESIGN ====================== -->
-<section class="section" id="overview">
-  <div class="container" style="max-width: 85%; margin: 0 auto;">
-
-    <h1 class="title is-3 has-text-centered">
-      Benchmark Design
-    </h1>
-
-    <div class="content has-text-justified"
-         style="font-size:1.15em; line-height:1.65; margin-top:1.5rem;">
-
-      <p>
-        MC-SEARCH introduces five representative reasoning topologies
-        that simulate realistic agentic search behaviors across multimodal
-        knowledge bases containing 389K images and 784K documents.
-      </p>
-
-      <p>
-        Beyond answer accuracy, we evaluate:
-      </p>
-
-      <ul>
-        <li><b>Hit-per-Step (HPS)</b> – step-level retrieval fidelity</li>
-        <li><b>Rollout Deviation (RD)</b> – reasoning path alignment</li>
-        <li><b>Planning Accuracy</b> – sub-question correctness</li>
-      </ul>
-
+  </section>
+  
+  <section class="section" id="overview" style="padding-top:1.5rem;">
+    <div class="container" style="max-width: 80%; margin: 0 auto;">
+      <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:1rem;">Overview</h1>
+      <br>
+      <div class="content has-text-justified" style="max-width: 85%; font-size: 1.2em; margin: 0 auto; line-height: 1.55;">
+        <p style="text-align:justify; color:rgb(31, 30, 30);">
+          <b>MC-SEARCH</b> is the first comprehensive benchmark designed to evaluate <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>. Unlike traditional RAG, MC-SEARCH focuses on <b>structured long reasoning chains</b> where agents must navigate through vast knowledge bases (389K images and 784K documents) to solve complex queries.
+        </p>
+        <p style="text-align:justify; color:rgb(31, 30, 30);">
+          Each instance in MC-SEARCH provides step-wise sub-questions, explicit retrieval modality annotations (image vs. text), and intermediate reasoning states, allowing for a fine-grained analysis of how agents plan and execute multimodal search.
+        </p>
+      </div>
+  
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-eight-fifths">
+          <figure class="table-figure">
+            <img class="figure-image" src="static/images/figure2.png" alt="MC-SEARCH Benchmark Design" style="max-width: 85%; text-align:center; margin-bottom:1rem; margin-top:1.5rem;"/>
+            <figcaption class="figure-caption" style="font-size: 1.1em;">
+              <b>Figure 1.</b> The reasoning topologies of MC-SEARCH: simulating realistic agentic search behaviors via unified pipelines.
+            </figcaption>
+          </figure>
+  
+          <p style="text-align:justify; color:rgb(31, 30, 30); font-size: 1.2em; margin-top:1rem; margin-bottom:1rem; line-height: 1.55; max-width: 85%; margin: 0 auto;">
+            We introduce five representative <b>reasoning topologies</b> that mirror real-world search patterns. We evaluate models not just on the final answer, but on their <b>Hit-per-Step (HPS)</b>, <b>Rollout Deviation (RD)</b>, and <b>Planning Accuracy</b> to pinpoint where agentic reasoning breaks down.
+          </p>
+        </div>
+      </div>
     </div>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <img src="static/images/figure2.png"
-             alt="Benchmark Overview"
-             style="max-width: 85%; margin-top:2rem;">
-        <p style="font-size:1.05em; margin-top:0.5rem;">
-          <b>Figure.</b> Five reasoning topologies and unified agentic pipeline.
+  </section> 
+  
+  <section class="section" id="findings" style="padding-top:1.5rem;">
+    <div class="container" style="max-width: 80%; margin: 0 auto;">
+      <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:1rem;">Key Takeaways</h1>
+      <br>
+      <div class="content has-text-justified" style="max-width: 85%; font-size: 1.2em; margin: 0 auto; line-height: 1.55;">
+        <p style="text-align:justify; color:rgb(31, 30, 30);">
+          Our evaluation of state-of-the-art MLLMs (Multimodal Large Language Models) reveals critical bottlenecks in current agentic search capabilities:
+        </p>
+        <p style="text-align:justify; color:rgb(31, 30, 30); margin-bottom: -0.1em;">
+          <span style="font-size:1.3em;">💡</span> <b>Compounding Errors:</b> Retrieval fidelity drops significantly as reasoning depth exceeds 3 hops.
+        </p>
+        <p style="text-align:justify; color:rgb(31, 30, 30); margin-bottom: -0.1em;">
+          <span style="font-size:1.3em;">💡</span> <b>Modality Gap:</b> Current models struggle with maintaining consistency when switching between image and text retrieval.
+        </p>
+        <p style="text-align:justify; color:rgb(31, 30, 30);">
+          <span style="font-size:1.3em;">💡</span> <b>Process Supervision:</b> Explicit reasoning alignment (like our SEARCH-ALIGN) substantially boosts retrieval success rates.
         </p>
       </div>
     </div>
-
-  </div>
-</section>
-
-
-<!-- ====================== KEY FINDINGS ====================== -->
-<section class="section">
-  <div class="container" style="max-width: 85%; margin: 0 auto;">
-
-    <h1 class="title is-3 has-text-centered">
-      Key Findings
-    </h1>
-
-    <div class="content"
-         style="font-size:1.2em; line-height:1.7; margin-top:1.5rem;">
-
-      <p>💡 <b>Current MLLMs struggle with long multimodal search chains.</b></p>
-      <p>💡 Retrieval errors compound significantly after 3 hops.</p>
-      <p>💡 Process-level supervision improves planning and retrieval alignment.</p>
-      <p>💡 SEARCH-ALIGN substantially improves HPS and RD metrics.</p>
-
-    </div>
-
-  </div>
-</section>
+  </section>
 
 
   <!-- Case Study -->
