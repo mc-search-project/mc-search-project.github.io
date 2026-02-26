@@ -2,9 +2,9 @@
 <html>
 
 <head>
-  <link rel="icon" type="image/png" href="website/img/page_logo.png">
+  <link rel="icon" type="image/png" href="website/img2/logo.png">
 
-  <title>AlphaOne: Reasoning Models Thinking Slow and Fast at Test Time</title>
+  <title>MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -106,113 +106,56 @@
 
 <body>
 
-  <!-- Single-line Title with Bulma's .title.is-1 is-bold (centered heading) -->
-  <section class="hero">
+<section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
 
-            <!-- MAIN TITLE (logo + "AlphaOne:") -->
             <h1 class="title is-1 publication-title is-bold">
-              <span class="alphaone" style="vertical-align: middle">AlphaOne</span>
+              MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains
             </h1>
 
-            <!-- SUBTITLE -->
-            <h2 class="title is-1 publication-title is-bold" style="margin-top:-0.5em; margin-right: 30px; margin-left: 30px;">
-              Reasoning Models Thinking Slow and Fast at Test Time
-            </h2>
-
-            <!-- Author list -->
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://jyzhang1208.github.io/" target="_blank">Junyu Zhang</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/uiuc.svg" alt="uiuc" style="height: 0.85em; vertical-align: baseline; margin: 0 0.1em;">&#8224;
-                </sup>&nbsp;&nbsp;&nbsp;
+                <a href="#" target="_blank">Xuying Ning</a>,
               </span>
               <span class="author-block">
-                <a href="https://runpeidong.web.illinois.edu/" target="_blank">Runpei Dong</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/uiuc.svg" alt="uiuc" style="height: 0.85em; vertical-align: baseline; margin: 0 0.1em;">&#8224;
-                </sup>&nbsp;&nbsp;&nbsp;
+                <a href="#" target="_blank">Dongqi Fu</a>,
               </span>
               <span class="author-block">
-                <a href="https://rookiehb.github.io/" target="_blank">Han Wang</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/uiuc.svg" alt="uiuc" style="height: 0.85em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>&nbsp;&nbsp;&nbsp;
+                <a href="#" target="_blank">Tianxin Wei</a>,
               </span>
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=-tpUy14AAAAJ&hl=en" target="_blank">Xuying Ning</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/uiuc.svg" alt="uiuc" style="height: 0.85em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>&nbsp;&nbsp;&nbsp;
-              </span><br>
-              <span class="author-block">
-                <a href="https://geng-haoran.github.io/">Haoran Geng</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/berkeley_logo.svg" alt="ucb" style="height: 0.9em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>&nbsp;&nbsp;&nbsp;
+                <a href="#" target="_blank">Mengting Ai</a>,
               </span>
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=GegXM9gAAAAJ&hl=en">Peihao Li</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/berkeley_logo.svg" alt="ucb" style="height: 0.9em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>&nbsp;&nbsp;&nbsp;                
+                <a href="#" target="_blank">Jiaru Zou</a>,
               </span>
               <span class="author-block">
-                <a href="https://xialin-he.github.io/">Xialin He</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/uiuc.svg" alt="uiuc" style="height: 0.85em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>&nbsp;&nbsp;&nbsp;
+                <a href="#" target="_blank">Ting-Wei Li</a>,
               </span>
               <span class="author-block">
-                <a href="https://yutongbai.com/">Yutong Bai</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/berkeley_logo.svg" alt="ucb" style="height: 0.9em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>&nbsp;&nbsp;&nbsp;
+                <a href="#" target="_blank">Hanghang Tong</a>,
               </span>
               <span class="author-block">
-                <a href="https://people.eecs.berkeley.edu/~malik/">Jitendra Malik</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/berkeley_logo.svg" alt="ucb" style="height: 0.9em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>&nbsp;&nbsp;&nbsp;              
-              </span><br>
-              <span class="author-block">
-                <a href="https://saurabhg.web.illinois.edu/">Saurabh Gupta</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/uiuc.svg" alt="uiuc" style="height: 0.85em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>&nbsp;&nbsp;&nbsp;
+                <a href="#" target="_blank">Yada Zhu</a>,
               </span>
               <span class="author-block">
-                <a href="https://www.huan-zhang.com/">Huan Zhang</a>
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/uiuc.svg" alt="uiuc" style="height: 0.85em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>
+                <a href="#" target="_blank">Hendrik Hamann</a>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Jingrui He</a>
               </span>
             </div>
+
             <div class="is-size-5 publication-authors" style="margin-top:1em;">
-              <span class="author-block">
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/uiuc.svg" alt="uiuc" style="height: 0.85em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>University of Illinois Urbana-Champaign</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="author-block">
-                <sup style="display: inline-flex; align-items: center; margin-left: -0.3em; gap: 0.05em;">
-                  <img src="website/img/berkeley_logo.svg" alt="ucb" style="height: 0.9em; vertical-align: baseline; margin: 0 0.1em;">
-                </sup>UC Berkeley</span>
-            </div>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>&#8224</sup>Equal contribution</span>
-            </div>
-            <div class="is-size-5 publication-authors" style="margin-top:0.5em;">
-              <span class="author-block" style="color:rgb(192, 54, 54);"><b>EMNLP 2025 Main</b></span>
+              <span class="author-block">University of Illinois Urbana-Champaign</span>
             </div>
 
-            <!-- Links -->
             <div class="column has-text-centered" style="margin-top:1.0em;">
               <span class="link-block">
-                <a href="http://arxiv.org/abs/2505.24863" class="external-link button is-normal is-rounded is-dark">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
@@ -220,7 +163,7 @@
                 </a>&nbsp;&nbsp;
               </span>
               <span class="link-block">
-                <a href="https://github.com/ASTRAL-Group/AlphaOne" class="external-link button is-normal is-rounded is-dark" role="button" target="_blank">
+                <a href="#" class="external-link button is-normal is-rounded is-dark" role="button" target="_blank">
                   <span class="icon">
                     <i class="fab fa-github"></i>
                   </span>
