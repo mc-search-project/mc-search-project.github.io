@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <link rel="icon" type="image/png" href="website/img2/MC-SEARCH_Logo.png">
+  <link rel="icon" type="image/png" href="website/img2/logo.png">
 
   <title>MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains</title>
 
@@ -56,27 +56,30 @@
       width: auto;
     }
 
+    /* 主标题字体设为 Copperplate */
     .text-main-title {
-      font-family: 'Google Sans', sans-serif;
+      font-family: 'Copperplate', 'Copperplate Gothic Light', serif;
       font-size: 4.2rem !important;
       font-weight: 700;
-      color: #333;
+      color: #333333;
       margin: 0;
+      text-transform: uppercase;
     }
 
+    /* 副标题字体设为 Copperplate */
     .text-sub-title {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 2.1rem !important;
+      font-family: 'Copperplate', 'Copperplate Gothic Light', serif;
+      font-size: 1.8rem !important;
       font-weight: 400;
       color: #5a5a5a;
       margin-top: 10px;
       max-width: 1000px;
-      line-height: 1.2;
+      line-height: 1.3;
     }
 
     /* 2. 作者姓名样式：淡蓝色链接 */
     .publication-authors a {
-      color: #3273dc !important; 
+      color: #328adc !important; 
       transition: opacity 0.2s;
     }
 
@@ -89,7 +92,7 @@
     .sup-color-1 { color: #E84118 !important; font-weight: bold; } /* UIUC - 橙红 */
     .sup-color-2 { color: #0086e6 !important; font-weight: bold; } /* Meta - 绿色 */
     .sup-color-3 { color: #003de6 !important; font-weight: bold; } /* IBM - 蓝色 */
-    .sup-color-4 { color: #e2e67a !important; font-weight: bold; } /* Stony Brook - 紫色 */
+    .sup-color-4 { color: #e6c77a !important; font-weight: bold; } /* Stony Brook - 紫色 */
 
     .author-block {
       display: inline-block;
@@ -116,7 +119,7 @@
 
             <div class="hero-title-box">
               <div class="title-first-line">
-                <img src="website/img2/logo.png" alt="Logo" class="logo-main">
+                <img src="website/img2/MC-SEARCH_Logo.png" alt="Logo" class="logo-main">
                 <h1 class="text-main-title">MC-Search</h1>
               </div>
               <div class="text-sub-title">
@@ -214,24 +217,73 @@
       <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:1rem;">Overview</h1>
       <br>
       <div class="content has-text-justified" style="max-width: 85%; font-size: 1.2em; margin: 0 auto; line-height: 1.55;">
-        <p>
-          <b>MC-SEARCH</b> is the first comprehensive benchmark designed to evaluate <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>.
+        <p style="text-align:justify; color:rgb(31, 30, 30);">
+          <b>MC-SEARCH</b> is the first comprehensive benchmark designed to evaluate <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>. Unlike traditional RAG, MC-SEARCH focuses on <b>structured long reasoning chains</b> where agents must navigate through vast knowledge bases (389K images and 784K documents) to solve complex queries.
+        </p>
+        <p style="text-align:justify; color:rgb(31, 30, 30);">
+          Each instance in MC-SEARCH provides step-wise sub-questions, explicit retrieval modality annotations (image vs. text), and intermediate reasoning states, allowing for a fine-grained analysis of how agents plan and execute multimodal search.
         </p>
       </div>
-    </div>
-  </section> 
-
-  <footer class="footer">
-    <div class="columns is-centered">
-        <div class="column is-9">
-          <div class="content">
-          <p style="font-size: 1.15em;">
-            This website is adapted from <a href="https://nerfies.github.io/">Nerfies</a>.
+  
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-eight-fifths">
+          <figure class="table-figure">
+            <img class="figure-image" src="website/img2/figure2.png" alt="MC-SEARCH Benchmark Design" style="max-width: 85%; text-align:center; margin-bottom:1rem; margin-top:1.5rem;"/>
+            <figcaption class="figure-caption" style="font-size: 1.1em;">
+              <b>Figure 1.</b> The reasoning topologies of MC-SEARCH: simulating realistic agentic search behaviors via unified pipelines.
+            </figcaption>
+          </figure>
+  
+          <p style="text-align:justify; color:rgb(31, 30, 30); font-size: 1.2em; margin-top:1rem; margin-bottom:1rem; line-height: 1.55; max-width: 85%; margin: 0 auto;">
+            We introduce five representative <b>reasoning topologies</b> that mirror real-world search patterns. We evaluate models not just on the final answer, but on their <b>Hit-per-Step (HPS)</b>, <b>Rollout Deviation (RD)</b>, and <b>Planning Accuracy</b> to pinpoint where agentic reasoning breaks down.
           </p>
         </div>
       </div>
     </div>
-  </footer>
+  </section> 
+  
+  <section class="section" id="findings" style="padding-top:1.5rem;">
+    <div class="container" style="max-width: 80%; margin: 0 auto;">
+      <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:1rem;">Key Takeaways</h1>
+      <br>
+      <div class="content has-text-justified" style="max-width: 85%; font-size: 1.2em; margin: 0 auto; line-height: 1.55;">
+        <p style="text-align:justify; color:rgb(31, 30, 30);">
+          Our evaluation of state-of-the-art MLLMs (Multimodal Large Language Models) reveals critical bottlenecks in current agentic search capabilities:
+        </p>
+        <p style="text-align:justify; color:rgb(31, 30, 30); margin-bottom: -0.1em;">
+          <span style="font-size:1.3em;">💡</span> <b>Compounding Errors:</b> Retrieval fidelity drops significantly as reasoning depth exceeds 3 hops.
+        </p>
+        <p style="text-align:justify; color:rgb(31, 30, 30); margin-bottom: -0.1em;">
+          <span style="font-size:1.3em;">💡</span> <b>Modality Gap:</b> Current models struggle with maintaining consistency when switching between image and text retrieval.
+        </p>
+        <p style="text-align:justify; color:rgb(31, 30, 30);">
+          <span style="font-size:1.3em;">💡</span> <b>Process Supervision:</b> Explicit reasoning alignment (like our SEARCH-ALIGN) substantially boosts retrieval success rates.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <footer class="footer">
+    <!-- <div class="content has-text-centered"> -->
+    <div class="columns is-centered">
+        <div class="column is-9">
+          <div class="content">
+          <p style="font-size: 1.15em;">
+            This website is adapted from 
+            <a href="https://nerfies.github.io/" style="text-decoration: none;">Nerfies</a>, licensed under a 
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration: none;">
+              Creative Commons Attribution-ShareAlike 4.0 International License
+            </a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</footer>
+
 
 </body>
 </html>
