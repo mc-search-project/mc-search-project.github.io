@@ -21,7 +21,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./website/javascript/bulma-carousel.min.js"></script>
   <script src="./website/javascript/bulma-slider.min.js"></script>
-  <script src="./website/javascript/explorer-index.js"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -37,77 +36,65 @@
   <link rel="stylesheet" href="website/css/index.css">
 
   <style>
-    /* 1. 标题与Logo样式 (MathVista Style) */
-    .fancy-title-container {
+    /* 1. 标题与Logo区域 (MathVista 风格) */
+    .hero-title-box {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 1rem 0;
+      margin-bottom: 2rem;
     }
 
-    .title-row-top {
+    .title-first-line {
       display: flex;
       align-items: center;
-      gap: 15px; /* Logo和文字间距 */
-      margin-bottom: 0.5rem;
+      justify-content: center;
+      gap: 20px; /* Logo和文字的间距 */
     }
 
-    .title-logo {
-      height: 3.5rem; /* 调整Logo大小 */
+    .logo-main {
+      height: 4.5rem; /* 大Logo */
       width: auto;
     }
 
-    .title-main-text {
+    .text-main-title {
       font-family: 'Google Sans', sans-serif;
-      font-size: 3.5rem !important;
+      font-size: 4.5rem !important;
       font-weight: 700;
-      color: #363636;
-      text-transform: none;
-      letter-spacing: -1px;
+      color: #333;
+      margin: 0;
     }
 
-    .title-sub-text {
+    .text-sub-title {
       font-family: 'Google Sans', sans-serif;
-      font-size: 1.8rem !important;
+      font-size: 2.2rem !important;
       font-weight: 400;
-      color: #4a4a4a;
-      max-width: 900px;
+      color: #666;
+      margin-top: 10px;
+      max-width: 1000px;
       line-height: 1.2;
     }
 
-    /* 2. 作者链接与机构颜色 */
-    :root {
-      --color-uiuc: #E84A27;    /* UIUC Orange */
-      --color-meta: #0668E1;    /* Meta Blue */
-      --color-ibm: #052FAD;     /* IBM Blue */
-      --color-stony: #990000;   /* Stony Brook Red */
-    }
-
+    /* 2. 作者样式：改为淡蓝色链接 */
     .publication-authors a {
-      color: #4a4a4a;
-      transition: all 0.2s ease-in-out;
+      color: #3273dc !important; /* Bulma/MathVista 风格的蓝色 */
+      transition: opacity 0.2s;
     }
 
     .publication-authors a:hover {
-      color: #209cee;
-      text-decoration: none;
+      text-decoration: underline;
+      opacity: 0.8;
     }
 
-    /* 上标颜色标注 */
-    .sup-1 { color: var(--color-uiuc) !important; font-weight: bold; }
-    .sup-2 { color: var(--color-meta) !important; font-weight: bold; }
-    .sup-3 { color: var(--color-ibm) !important; font-weight: bold; }
-    .sup-4 { color: var(--color-stony) !important; font-weight: bold; }
+    /* 3. 上标染色 (仅数字变色) */
+    .color-1 { color: #e74c3c !important; font-weight: bold; } /* UIUC - 红色 */
+    .color-2 { color: #2ecc71 !important; font-weight: bold; } /* Meta - 绿色 */
+    .color-3 { color: #3498db !important; font-weight: bold; } /* IBM - 蓝色 */
+    .color-4 { color: #9b59b6 !important; font-weight: bold; } /* Stony Brook - 紫色 */
 
-    /* 机构列表样式 */
-    .institution-block {
-      margin: 0.2rem 0;
+    .author-block {
+      display: inline-block;
+      white-space: nowrap;
     }
-    .inst-uiuc { color: var(--color-uiuc); }
-    .inst-meta { color: var(--color-meta); }
-    .inst-ibm { color: var(--color-ibm); }
-    .inst-stony { color: var(--color-stony); }
 
     .collapse-content {
       display: none;
@@ -127,57 +114,57 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
 
-            <div class="fancy-title-container">
-              <div class="title-row-top">
-                <img src="website/img2/logo.png" alt="MC-Search Logo" class="title-logo">
-                <h1 class="title-main-text">MC-Search</h1>
+            <div class="hero-title-box">
+              <div class="title-first-line">
+                <img src="website/img2/logo.png" alt="Logo" class="logo-main">
+                <h1 class="text-main-title">MC-Search</h1>
               </div>
-              <p class="title-sub-text">
+              <div class="text-sub-title">
                 Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains
-              </p>
+              </div>
             </div>
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://yennning.github.io/" target="_blank">Xuying Ning</a><sup class="sup-1">1</sup>,
+                <a href="https://yennning.github.io/" target="_blank">Xuying Ning</a><sup class="color-1">1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://example.com/dongqi" target="_blank">Dongqi Fu</a><sup class="sup-2">2</sup>,
+                <a href="#" target="_blank">Dongqi Fu</a><sup class="color-2">2</sup>,
               </span>
               <span class="author-block">
-                <a href="https://example.com/tianxin" target="_blank">Tianxin Wei</a><sup class="sup-1">1</sup>,
+                <a href="#" target="_blank">Tianxin Wei</a><sup class="color-1">1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://example.com/mengting" target="_blank">Mengting Ai</a><sup class="sup-1">1</sup>,
+                <a href="#" target="_blank">Mengting Ai</a><sup class="color-1">1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://example.com/jiaru" target="_blank">Jiaru Zou</a><sup class="sup-1">1</sup>,
+                <a href="#" target="_blank">Jiaru Zou</a><sup class="color-1">1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://example.com/tingwei" target="_blank">Ting-Wei Li</a><sup class="sup-1">1</sup>,
+                <a href="#" target="_blank">Ting-Wei Li</a><sup class="color-1">1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://example.com/hanghang" target="_blank">Hanghang Tong</a><sup class="sup-1">1</sup>,
+                <a href="#" target="_blank">Hanghang Tong</a><sup class="color-1">1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://example.com/yada" target="_blank">Yada Zhu</a><sup class="sup-3">3</sup>,
+                <a href="#" target="_blank">Yada Zhu</a><sup class="color-3">3</sup>,
               </span>
               <span class="author-block">
-                <a href="https://example.com/hendrik" target="_blank">Hendrik Hamann</a><sup class="sup-4">4</sup>,
+                <a href="#" target="_blank">Hendrik Hamann</a><sup class="color-4">4</sup>,
               </span>
               <span class="author-block">
-                <a href="https://example.com/jingrui" target="_blank">Jingrui He</a><sup class="sup-1">1</sup>
+                <a href="#" target="_blank">Jingrui He</a><sup class="color-1">1</sup>
               </span>
             </div>
 
-            <div class="is-size-5 publication-authors" style="margin-top: 1em;">
-              <span class="author-block institution-block"><sup class="sup-1">1</sup><span class="inst-uiuc">University of Illinois Urbana-Champaign</span>,</span>
-              <span class="author-block institution-block"><sup class="sup-2">2</sup><span class="inst-meta">Meta</span>,</span>
-              <span class="author-block institution-block"><sup class="sup-3">3</sup><span class="inst-ibm">IBM</span>,</span>
-              <span class="author-block institution-block"><sup class="sup-4">4</sup><span class="inst-stony">State University of New York at Stony Brook</span></span>
+            <div class="is-size-5 publication-authors" style="margin-top: 1.5em; color: #555;">
+              <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign,</span>
+              <span class="author-block"><sup>2</sup>Meta,</span>
+              <span class="author-block"><sup>3</sup>IBM,</span>
+              <span class="author-block"><sup>4</sup>State University of New York at Stony Brook</span>
             </div>
 
-            <div class="column has-text-centered" style="margin-top:1.0em;">
+            <div class="column has-text-centered" style="margin-top:1.5em;">
               <span class="link-block">
                 <a href="https://openreview.net/pdf?id=JEGDp1E4OH" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
@@ -216,7 +203,7 @@
           <figure style="margin: 0 auto; padding: 0;">
             <img src="website/img2/figure1.png" alt="MC-Search Teaser" 
                  style="width: 100%; height: auto; display: block; margin: 0 auto;">
-            </figure>
+          </figure>
         </div>
       </div>
     </div>
@@ -228,19 +215,8 @@
       <br>
       <div class="content has-text-justified" style="max-width: 85%; font-size: 1.2em; margin: 0 auto; line-height: 1.55;">
         <p>
-          <b>MC-SEARCH</b> is the first comprehensive benchmark designed to evaluate <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>. Unlike traditional RAG, MC-SEARCH focuses on <b>structured long reasoning chains</b> where agents must navigate through vast knowledge bases (389K images and 784K documents) to solve complex queries.
+          <b>MC-SEARCH</b> is the first comprehensive benchmark designed to evaluate <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>. Unlike traditional RAG, MC-SEARCH focuses on <b>structured long reasoning chains</b> where agents must navigate through vast knowledge bases to solve complex queries.
         </p>
-      </div>
-  
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-eight-fifths">
-          <figure class="table-figure">
-            <img class="figure-image" src="website/img2/figure2.png" alt="MC-SEARCH Benchmark Design" style="max-width: 85%; text-align:center; margin-bottom:1rem; margin-top:1.5rem;"/>
-            <figcaption class="figure-caption" style="font-size: 1.1em;">
-              <b>Figure 1.</b> The reasoning topologies of MC-SEARCH.
-            </figcaption>
-          </figure>
-        </div>
       </div>
     </div>
   </section> 
