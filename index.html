@@ -34,53 +34,71 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <link rel="stylesheet" href="website/css/index.css">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bulma -->
+  <link rel="stylesheet" href="website/css/bulma.min.css">
+  <link rel="stylesheet" href="website/css/fontawesome.all.min.css">
 
   <style>
-    /* 1. 标题与Logo区域 (MathVista 风格) */
+    body {
+      font-family: 'Inter', Helvetica, Arial, sans-serif;
+      color: #444;
+      background-color: #fff;
+    }
+
+    .hero {
+      padding-top: 4rem;
+      padding-bottom: 3rem;
+    }
+
     .hero-title-box {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .title-first-line {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 18px;
     }
 
     .logo-main {
-      height: 4.2rem;
+      height: 3.6rem;
       width: auto;
     }
 
-    /* 主标题字体设为 Copperplate */
     .text-main-title {
-      font-family: 'Copperplate', 'Copperplate Gothic Light', serif;
-      font-size: 4.2rem !important;
-      font-weight: 700;
-      color: #333333;
+      font-size: 3.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #3f3f3f;
       margin: 0;
-      text-transform: uppercase;
     }
 
-    /* 副标题字体设为 Copperplate */
     .text-sub-title {
-      font-family: 'Copperplate', 'Copperplate Gothic Light', serif;
-      font-size: 1.8rem !important;
+      font-size: 2rem;
       font-weight: 400;
       color: #5a5a5a;
-      margin-top: 10px;
-      max-width: 1000px;
-      line-height: 1.3;
+      margin-top: 1rem;
+      max-width: 1100px;
+      line-height: 1.35;
+      text-align: center;
     }
 
-    /* 2. 作者姓名样式：淡蓝色链接 */
+    .publication-authors {
+      margin-top: 1.8rem;
+      font-size: 1.25rem;
+      line-height: 1.6;
+    }
+
     .publication-authors a {
-      color: #328adc !important; 
-      transition: opacity 0.2s;
+      color: #2a87d6 !important;
+      transition: opacity 0.2s ease;
     }
 
     .publication-authors a:hover {
@@ -88,11 +106,17 @@
       opacity: 0.8;
     }
 
+    .publication-affiliation {
+      margin-top: 1.2rem;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
     /* 3. 上标染色类 */
     .sup-color-1 { color: #E84118 !important; font-weight: bold; } /* UIUC - 橙红 */
     .sup-color-2 { color: #0086e6 !important; font-weight: bold; } /* Meta - 绿色 */
     .sup-color-3 { color: #003de6 !important; font-weight: bold; } /* IBM - 蓝色 */
-    .sup-color-4 { color: #e6c77a !important; font-weight: bold; } /* Stony Brook - 紫色 */
+    .sup-color-4 { color: #ffc73a !important; font-weight: bold; } /* Stony Brook - 紫色 */
 
     .author-block {
       display: inline-block;
@@ -119,7 +143,7 @@
 
             <div class="hero-title-box">
               <div class="title-first-line">
-                <img src="website/img2/MC-SEARCH_Logo.png" alt="Logo" class="logo-main">
+                <img src="website/img2/MC-Search_Logo.png" alt="Logo" class="logo-main">
                 <h1 class="text-main-title">MC-Search</h1>
               </div>
               <div class="text-sub-title">
