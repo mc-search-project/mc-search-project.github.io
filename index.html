@@ -2,239 +2,191 @@
 <html>
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MC-Search</title>
   <link rel="icon" type="image/png" href="website/img2/logo.png">
 
-  <title>MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="website/css/bulma.min.css">
-  <link rel="stylesheet" href="website/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="website/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="website/css/fontawesome.all.min.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./website/javascript/bulma-carousel.min.js"></script>
-  <script src="./website/javascript/bulma-slider.min.js"></script>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bootstrap4.min.css" rel="stylesheet">
-  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
-  <script defer src="website/javascript/fontawesome.all.min.js"></script>
-
-  <script src="website/javascript/benchmark_table.js" type="module"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <link rel="stylesheet" href="website/css/index.css">
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Bulma -->
+  <link rel="stylesheet" href="website/css/bulma.min.css">
+  <link rel="stylesheet" href="website/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
   <style>
-    body {
-      font-family: 'Inter', Helvetica, Arial, sans-serif;
-      color: #444;
-      background-color: #fff;
+    html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Inter', Helvetica, Arial, sans-serif;
+      color: #444;
     }
 
-    /* 修复宽度问题：让内容容器占据更多空间并居中 */
-    .container.full-width-center {
-      max-width: 1400px !important; 
-      width: 95%;
-      margin: 0 auto !important;
+    * {
+      box-sizing: border-box;
     }
 
     .hero {
       padding-top: 4rem;
       padding-bottom: 3rem;
-      width: 100%;
     }
 
     .hero-title-box {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
     .title-first-line {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 25px; /* 增加间距 */
+      gap: 20px;
     }
 
-    /* 修改1：Logo 显著变大 */
     .logo-main {
-      height: 4.8rem; 
-      width: auto;
+      height: 4.5rem;
     }
 
     .text-main-title {
-      font-size: 4rem; /* 配合Logo调大标题 */
+      font-size: 3.6rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: #3f3f3f;
       margin: 0;
-      font-family: 'Copperplate', 'Copperplate Gothic Light', serif;
     }
 
     .text-sub-title {
-      font-size: 2rem;
-      font-weight: 400;
-      color: #5a5a5a;
-      margin-top: 1.5rem;
-      max-width: 1100px;
-      line-height: 1.35;
+      font-size: 1.8rem;
+      margin-top: 1.2rem;
+      max-width: 900px;
+      line-height: 1.4;
       text-align: center;
-      font-family: 'Copperplate', 'Copperplate Gothic Light', serif;
     }
 
     .publication-authors {
       margin-top: 1.8rem;
-      font-size: 1.25rem;
-      line-height: 1.6;
+      font-size: 1.2rem;
     }
 
     .publication-authors a {
-      color: #2a87d6 !important;
-      transition: opacity 0.2s ease;
+      color: #2a87d6;
+      text-decoration: none;
     }
 
     .publication-authors a:hover {
       text-decoration: underline;
-      opacity: 0.8;
     }
 
-    .sup-color-1 { color: #E84118 !important; font-weight: bold; }
-    .sup-color-2 { color: #0086e6 !important; font-weight: bold; }
-    .sup-color-3 { color: #003de6 !important; font-weight: bold; }
-    .sup-color-4 { color: #ffc73a !important; font-weight: bold; }
+    .sup-color-1 { color: #E84118; font-weight: 600; }
+    .sup-color-2 { color: #0086e6; font-weight: 600; }
+    .sup-color-3 { color: #003de6; font-weight: 600; }
+    .sup-color-4 { color: #ffc73a; font-weight: 600; }
 
-    .author-block {
-      display: inline-block;
-      white-space: nowrap;
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
     }
 
-    /* 移动端适配 */
+    .content p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
     @media screen and (max-width: 768px) {
       .logo-main { height: 3rem; }
-      .text-main-title { font-size: 2.5rem; }
-      .title-first-line { gap: 15px; }
+      .text-main-title { font-size: 2.4rem; }
+      .text-sub-title { font-size: 1.3rem; }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-body">
-      <div class="container full-width-center">
-        <div class="columns is-centered">
-          <div class="column has-text-centered is-12"> <div class="hero-title-box">
-              <div class="title-first-line">
-                <img src="website/img2/MC-Search_Logo.png" alt="Logo" class="logo-main">
-                <h1 class="text-main-title">MC-Search</h1>
-              </div>
-              <div class="text-sub-title">
-                Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains
-              </div>
-            </div>
+    <div class="container is-max-desktop has-text-centered">
 
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=-tpUy14AAAAJ&hl=en" target="_blank">Xuying Ning</a><sup class="sup-color-1">1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://dongqifu.github.io/" target="_blank">Dongqi Fu</a><sup class="sup-color-2">2</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://weitianxin.github.io/" target="_blank">Tianxin Wei</a><sup class="sup-color-1">1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://famous-blue-raincoat.github.io/mengtingai/home/" target="_blank">Mengting Ai</a><sup class="sup-color-1">1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=GzLTey4AAAAJ&hl=en" target="_blank">Jiaru Zou</a><sup class="sup-color-1">1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://tingwl0122.github.io/" target="_blank">Ting-Wei Li</a><sup class="sup-color-1">1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="http://tonghanghang.org/" target="_blank">Hanghang Tong</a><sup class="sup-color-1">1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=AJb408gAAAAJ&hl=en" target="_blank">Yada Zhu</a><sup class="sup-color-3">3</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://www.stonybrook.edu/commcms/somas/people/_profiles/hendrik-hamann.php" target="_blank">Hendrik Hamann</a><sup class="sup-color-4">4</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://ischool.illinois.edu/people/jingrui-he" target="_blank">Jingrui He</a><sup class="sup-color-1">1</sup>
-              </span>
-            </div>
+      <div class="hero-title-box">
+        <div class="title-first-line">
+          <img src="website/img2/MC-Search_Logo.png" class="logo-main">
+          <h1 class="text-main-title">MC-Search</h1>
+        </div>
 
-            <div class="is-size-5 publication-authors" style="margin-top: 1.2em; color: #4a4a4a;">
-              <span class="author-block"><sup class="sup-color-1">1</sup>University of Illinois Urbana-Champaign,</span>
-              <span class="author-block"><sup class="sup-color-2">2</sup>Meta,</span>
-              <span class="author-block"><sup class="sup-color-3">3</sup>IBM Research,</span>
-              <span class="author-block"><sup class="sup-color-4">4</sup>Stony Brook University</span>
-            </div>
-
-            <div class="column has-text-centered" style="margin-top:1.5em;">
-              <span class="link-block">
-                <a href="https://openreview.net/pdf?id=JEGDp1E4OH" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="ai ai-arxiv"></i></span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              &nbsp;&nbsp;
-              <span class="link-block">
-                <a href="https://github.com/YennNing/MC-Search" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code</span>
-                </a>
-              </span>
-              &nbsp;&nbsp;
-              <span class="link-block">
-                <a href="https://huggingface.co/datasets/YennNing/MC-Search" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-database"></i></span>
-                  <span>Dataset</span>
-                </a>
-              </span>
-            </div>
-
-          </div>
+        <div class="text-sub-title">
+          Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains
         </div>
       </div>
+
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">
+          <a href="https://scholar.google.com/citations?user=-tpUy14AAAAJ&hl=en" target="_blank">Xuying Ning</a><sup class="sup-color-1">1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://dongqifu.github.io/" target="_blank">Dongqi Fu</a><sup class="sup-color-2">2</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://weitianxin.github.io/" target="_blank">Tianxin Wei</a><sup class="sup-color-1">1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://famous-blue-raincoat.github.io/mengtingai/home/" target="_blank">Mengting Ai</a><sup class="sup-color-1">1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://scholar.google.com/citations?user=GzLTey4AAAAJ&hl=en" target="_blank">Jiaru Zou</a><sup class="sup-color-1">1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://tingwl0122.github.io/" target="_blank">Ting-Wei Li</a><sup class="sup-color-1">1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="http://tonghanghang.org/" target="_blank">Hanghang Tong</a><sup class="sup-color-1">1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://scholar.google.com/citations?user=AJb408gAAAAJ&hl=en" target="_blank">Yada Zhu</a><sup class="sup-color-3">3</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://www.stonybrook.edu/commcms/somas/people/_profiles/hendrik-hamann.php" target="_blank">Hendrik Hamann</a><sup class="sup-color-4">4</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://ischool.illinois.edu/people/jingrui-he" target="_blank">Jingrui He</a><sup class="sup-color-1">1</sup>
+        </span>
+      </div>
+
+      <div style="margin-top:1rem;">
+        <sup class="sup-color-1">1</sup>UIUC,
+        <sup class="sup-color-2">2</sup>Meta,
+        <sup class="sup-color-3">3</sup>IBM Research,
+        <sup class="sup-color-4">4</sup>Stony Brook University
+      </div>
+
+      <div style="margin-top:2rem;">
+        <a class="button is-dark is-rounded">Paper</a>
+        <a class="button is-dark is-rounded">Code</a>
+        <a class="button is-dark is-rounded">Dataset</a>
+      </div>
+
     </div>
   </section>
 
+  <!-- FIGURE -->
   <section class="section">
-    <div class="container full-width-center">
-      <div class="columns is-centered">
-        <div class="column is-10 has-text-centered">
-          <figure style="margin: 0 auto; padding: 0;">
-            <img src="website/img2/figure1.png" alt="MC-Search Teaser" 
-                 style="width: 100%; height: auto; display: block; margin: 0 auto; max-width: 1200px;">
-          </figure>
-        </div>
-      </div>
+    <div class="container is-max-desktop has-text-centered">
+      <img src="website/img2/figure1.png" style="width:100%; max-width:1100px;">
     </div>
   </section>
-  
+
   <section class="section" id="overview" style="padding-top:1.5rem;">
     <div class="container" style="max-width: 80%; margin: 0 auto;">
       <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:1rem;">Overview</h1>
