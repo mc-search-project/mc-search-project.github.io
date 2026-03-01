@@ -34,23 +34,29 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <link rel="stylesheet" href="website/css/index.css">
-  <!-- Inter Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Bulma -->
-  <link rel="stylesheet" href="website/css/bulma.min.css">
-  <link rel="stylesheet" href="website/css/fontawesome.all.min.css">
 
   <style>
     body {
       font-family: 'Inter', Helvetica, Arial, sans-serif;
       color: #444;
       background-color: #fff;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    /* 修复宽度问题：让内容容器占据更多空间并居中 */
+    .container.full-width-center {
+      max-width: 1400px !important; 
+      width: 95%;
+      margin: 0 auto !important;
     }
 
     .hero {
       padding-top: 4rem;
       padding-bottom: 3rem;
+      width: 100%;
     }
 
     .hero-title-box {
@@ -64,30 +70,33 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
+      gap: 25px; /* 增加间距 */
     }
 
+    /* 修改1：Logo 显著变大 */
     .logo-main {
-      height: 3.6rem;
+      height: 4.8rem; 
       width: auto;
     }
 
     .text-main-title {
-      font-size: 3.4rem;
-      font-weight: 600;
+      font-size: 4rem; /* 配合Logo调大标题 */
+      font-weight: 700;
       letter-spacing: -0.02em;
       color: #3f3f3f;
       margin: 0;
+      font-family: 'Copperplate', 'Copperplate Gothic Light', serif;
     }
 
     .text-sub-title {
       font-size: 2rem;
       font-weight: 400;
       color: #5a5a5a;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       max-width: 1100px;
       line-height: 1.35;
       text-align: center;
+      font-family: 'Copperplate', 'Copperplate Gothic Light', serif;
     }
 
     .publication-authors {
@@ -106,29 +115,21 @@
       opacity: 0.8;
     }
 
-    .publication-affiliation {
-      margin-top: 1.2rem;
-      font-size: 1.2rem;
-      color: #555;
-    }
-
-    /* 3. 上标染色类 */
-    .sup-color-1 { color: #E84118 !important; font-weight: bold; } /* UIUC - 橙红 */
-    .sup-color-2 { color: #0086e6 !important; font-weight: bold; } /* Meta - 绿色 */
-    .sup-color-3 { color: #003de6 !important; font-weight: bold; } /* IBM - 蓝色 */
-    .sup-color-4 { color: #ffc73a !important; font-weight: bold; } /* Stony Brook - 紫色 */
+    .sup-color-1 { color: #E84118 !important; font-weight: bold; }
+    .sup-color-2 { color: #0086e6 !important; font-weight: bold; }
+    .sup-color-3 { color: #003de6 !important; font-weight: bold; }
+    .sup-color-4 { color: #ffc73a !important; font-weight: bold; }
 
     .author-block {
       display: inline-block;
       white-space: nowrap;
     }
 
-    .collapse-content {
-      display: none;
-      margin-top: 10px;
-    }
-    .collapse-content.is-active {
-      display: block;
+    /* 移动端适配 */
+    @media screen and (max-width: 768px) {
+      .logo-main { height: 3rem; }
+      .text-main-title { font-size: 2.5rem; }
+      .title-first-line { gap: 15px; }
     }
   </style>
 </head>
@@ -137,11 +138,9 @@
 
   <section class="hero">
     <div class="hero-body">
-      <div class="container is-max-desktop">
+      <div class="container full-width-center">
         <div class="columns is-centered">
-          <div class="column has-text-centered">
-
-            <div class="hero-title-box">
+          <div class="column has-text-centered is-12"> <div class="hero-title-box">
               <div class="title-first-line">
                 <img src="website/img2/MC-Search_Logo.png" alt="Logo" class="logo-main">
                 <h1 class="text-main-title">MC-Search</h1>
@@ -224,12 +223,12 @@
   </section>
 
   <section class="section">
-    <div class="container" style="margin-top: -2rem; margin-bottom: -2rem; max-width: 100%;">
+    <div class="container full-width-center">
       <div class="columns is-centered">
-        <div class="column is-three-quarters has-text-centered">
+        <div class="column is-10 has-text-centered">
           <figure style="margin: 0 auto; padding: 0;">
             <img src="website/img2/figure1.png" alt="MC-Search Teaser" 
-                 style="width: 100%; height: auto; display: block; margin: 0 auto;">
+                 style="width: 100%; height: auto; display: block; margin: 0 auto; max-width: 1200px;">
           </figure>
         </div>
       </div>
