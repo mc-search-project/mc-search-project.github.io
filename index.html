@@ -357,98 +357,96 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-TOPOLOGY EXAMPLES — pure CSS/JS slider
+     TOPOLOGY EXAMPLES — pure CSS/JS slider
 ═══════════════════════════════════════════ -->
-<section class="hero is-light">
-<div class="hero-body">
-<div style="text-align:center; margin-bottom:1.5rem;">
- <h2 class="title is-3">Data Examples</h2>
-</div>
+<section class="hero" style="background:#fff;">
+  <div class="hero-body">
+    <div style="text-align:center; margin-bottom:1rem;">
+      <h4 class="title is-5">Data Examples</h4>
+    </div>
 
-<div style="position:relative; max-width:900px; margin:0 auto; overflow:hidden;">
- <!-- Track -->
- <div id="topo-track" style="display:flex; transition:transform 0.4s ease;">
+    <div style="position:relative; max-width:900px; margin:0 auto; overflow:hidden;">
+      <!-- Track -->
+      <div id="topo-track" style="display:flex; transition:transform 0.4s ease;">
 
-   <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
-     <img src="website/img2/image_initiated.png" alt="Image-Initiated Chain"
-          style="width:55%; border-radius:12px; border:2px solid #333; display:inline-block;">
-     <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Image-Initiated Chain</p>
-     <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
-       Reasoning starts from an <b>image retrieval step</b> and then proceeds with textual retrieval to gather factual knowledge. The image serves as the anchor for identifying entities that guide subsequent text-based reasoning.
-     </p>
-   </div>
+        <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
+          <img src="website/img2/image_initiated.png" alt="Image-Initiated Chain"
+               style="width:65%; border-radius:12px; border:2px solid #333; display:inline-block;">
+          <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Image-Initiated Chain</p>
+          <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+            Reasoning starts from an <b>image retrieval step</b> and then proceeds with textual retrieval to gather factual knowledge. The image serves as the anchor for identifying entities that guide subsequent text-based reasoning.
+          </p>
+        </div>
 
-   <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
-     <img src="website/img2/text_initiated.png" alt="Text-Initiated Chain"
-          style="width:55%; border-radius:12px; border:2px solid #333; display:inline-block;">
-     <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Text-Initiated Chain</p>
-     <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
-       Reasoning begins with <b>textual retrieval</b> to obtain key factual information and later incorporates image retrieval for visual verification. This topology reflects workflows where structured knowledge is first identified before grounding it in visual evidence.
-     </p>
-   </div>
+        <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
+          <img src="website/img2/text_initiated.png" alt="Text-Initiated Chain"
+               style="width:65%; border-radius:12px; border:2px solid #333; display:inline-block;">
+          <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Text-Initiated Chain</p>
+          <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+            Reasoning begins with <b>textual retrieval</b> to obtain key factual information and later incorporates image retrieval for visual verification. This topology reflects workflows where structured knowledge is first identified before grounding it in visual evidence.
+          </p>
+        </div>
 
-   <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
-     <img src="website/img2/parallel.png" alt="Parallel Image-Text Fork"
-          style="width:55%; border-radius:12px; border:2px solid #333; display:inline-block;">
-     <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Parallel Image-Text Fork</p>
-     <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
-       Image and text retrieval are performed in <b>parallel branches</b> without strict dependency between steps. The model must coordinate evidence from both modalities and integrate them to produce the final answer.
-     </p>
-   </div>
+        <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
+          <img src="website/img2/parallel.png" alt="Parallel Image-Text Fork"
+               style="width:65%; border-radius:12px; border:2px solid #333; display:inline-block;">
+          <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Parallel Image-Text Fork</p>
+          <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+            Image and text retrieval are performed in <b>parallel branches</b> without strict dependency between steps. The model must coordinate evidence from both modalities and integrate them to produce the final answer.
+          </p>
+        </div>
 
-   <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
-     <img src="website/img2/multi.png" alt="Multi-Images Fork"
-          style="width:55%; border-radius:12px; border:2px solid #333; display:inline-block;">
-     <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Multi-Images Fork</p>
-     <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
-       <b>Multiple images</b> are retrieved and compared to extract visual information before turning to textual evidence for factual support. This structure emphasizes cross-image reasoning and visual comparison.
-     </p>
-   </div>
+        <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
+          <img src="website/img2/multi.png" alt="Multi-Images Fork"
+               style="width:65%; border-radius:12px; border:2px solid #333; display:inline-block;">
+          <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Multi-Images Fork</p>
+          <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+            <b>Multiple images</b> are retrieved and compared to extract visual information before turning to textual evidence for factual support. This structure emphasizes cross-image reasoning and visual comparison.
+          </p>
+        </div>
 
-   <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
-     <img src="website/img2/text_chain.png" alt="Text-Only Chain"
-          style="width:55%; border-radius:12px; border:2px solid #333; display:inline-block;">
-     <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Text-Only Chain</p>
-     <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
-       All reasoning steps rely purely on <b>textual retrieval</b> without using images. It serves as a baseline topology focusing on sequential text-based reasoning.
-     </p>
-   </div>
+        <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
+          <img src="website/img2/text_chain.png" alt="Text-Only Chain"
+               style="width:65%; border-radius:12px; border:2px solid #333; display:inline-block;">
+          <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Text-Only Chain</p>
+          <p style="max-width:65%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+            All reasoning steps rely purely on <b>textual retrieval</b> without using images. It serves as a baseline topology focusing on sequential text-based reasoning.
+          </p>
+        </div>
 
- </div>
+      </div>
 
- <!-- Nav buttons -->
- <button onclick="topoSlide(-1)" aria-label="prev" style="position:absolute;top:38%;left:4px;transform:translateY(-50%);background:rgba(41,62,111,0.85);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;line-height:1;">&#8249;</button>
- <button onclick="topoSlide(1)"  aria-label="next" style="position:absolute;top:38%;right:4px;transform:translateY(-50%);background:rgba(41,62,111,0.85);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;line-height:1;">&#8250;</button>
-</div>
+      <!-- Nav buttons -->
+      <button onclick="topoSlide(-1)" aria-label="prev" style="position:absolute;top:38%;left:4px;transform:translateY(-50%);background:rgba(41,62,111,0.85);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;line-height:1;">&#8249;</button>
+      <button onclick="topoSlide(1)"  aria-label="next" style="position:absolute;top:38%;right:4px;transform:translateY(-50%);background:rgba(41,62,111,0.85);color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:1.2rem;cursor:pointer;line-height:1;">&#8250;</button>
+    </div>
 
-<!-- Dots -->
-<div id="topo-dots" style="text-align:center;margin-top:0.8rem;">
- <span onclick="topoGoTo(0)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:rgb(41,62,111);margin:0 4px;cursor:pointer;"></span>
- <span onclick="topoGoTo(1)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ccc;margin:0 4px;cursor:pointer;"></span>
- <span onclick="topoGoTo(2)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ccc;margin:0 4px;cursor:pointer;"></span>
- <span onclick="topoGoTo(3)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ccc;margin:0 4px;cursor:pointer;"></span>
- <span onclick="topoGoTo(4)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ccc;margin:0 4px;cursor:pointer;"></span>
-</div>
-</div>
+    <!-- Dots -->
+    <div id="topo-dots" style="text-align:center;margin-top:0.8rem;">
+      <span onclick="topoGoTo(0)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:rgb(41,62,111);margin:0 4px;cursor:pointer;"></span>
+      <span onclick="topoGoTo(1)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ccc;margin:0 4px;cursor:pointer;"></span>
+      <span onclick="topoGoTo(2)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ccc;margin:0 4px;cursor:pointer;"></span>
+      <span onclick="topoGoTo(3)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ccc;margin:0 4px;cursor:pointer;"></span>
+      <span onclick="topoGoTo(4)" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ccc;margin:0 4px;cursor:pointer;"></span>
+    </div>
+  </div>
 </section>
 
 <script>
-(function(){
-var idx=0, total=5;
-function update(){
- document.getElementById('topo-track').style.transform='translateX(-'+(idx*100)+'%)';
- document.getElementById('topo-dots').querySelectorAll('span').forEach(function(d,i){
-   d.style.background = i===idx ? 'rgb(41,62,111)' : '#ccc';
- });
-}
-window.topoSlide=function(d){ idx=(idx+d+total)%total; update(); };
-window.topoGoTo=function(i){ idx=i; update(); };
-})();
+  (function(){
+    var idx=0, total=5;
+    function update(){
+      document.getElementById('topo-track').style.transform='translateX(-'+(idx*100)+'%)';
+      document.getElementById('topo-dots').querySelectorAll('span').forEach(function(d,i){
+        d.style.background = i===idx ? 'rgb(41,62,111)' : '#ccc';
+      });
+    }
+    window.topoSlide=function(d){ idx=(idx+d+total)%total; update(); };
+    window.topoGoTo=function(i){ idx=i; update(); };
+  })();
 </script>
 
 <div style="background:#fff; height:4px;"></div>
-<!-- white gap between two carousel sections -->
-<div style="background:#fff; height:1px;"></div>
 
 
 
