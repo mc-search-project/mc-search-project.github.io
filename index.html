@@ -1,289 +1,533 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MC-Search">
+  <meta property="og:title" content="MC-Search">
+  <meta property="og:description" content="Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains">
+  <meta property="og:url" content="URL OF THE WEBSITE">
+  <meta name="twitter:title" content="MC-Search">
+  <meta name="twitter:description" content="Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="MC-Search, Multimodal, Agentic Search, RAG">
 
-  <title>MC-Search</title>
+  <title>MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains</title>
   <link rel="icon" type="image/png" href="website/img2/logo.png">
 
-  <!-- ERA-style Fonts -->
+  <!-- Embodied Web Agents fonts -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
+  <!-- Bulma + ecosystem (same as Embodied Web Agents) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/css/bulma-slider.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-  <!-- Bulma -->
-  <link rel="stylesheet" href="website/css/bulma.min.css">
-  <link rel="stylesheet" href="website/css/fontawesome.all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/js/bulma-slider.min.js"></script>
 
   <style>
-
+    /* ── Embodied Web Agents global resets ── */
     html, body {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      font-family: 'Google Sans', 'Noto Sans', sans-serif;
+      font-family: 'Noto Sans', 'Google Sans', sans-serif;
       color: #444;
     }
+    * { box-sizing: border-box; }
 
-    * {
-      box-sizing: border-box;
+    /* small-caps brand style (identical to EWA) */
+    .small-caps {
+      font-variant: small-caps;
+      letter-spacing: 0.05em;
     }
 
+    /* ── Hero ── */
     .hero {
       padding-top: 4rem;
-      padding-bottom: 3rem;
+      padding-bottom: 2rem;
     }
 
+    /* ── Author block (identical to EWA) ── */
     .publication-authors {
-      margin-top: 1.8rem;
-      font-size: 1.2rem;
+      margin-top: 1rem;
+      font-size: 1.1rem;
     }
-
     .publication-authors a {
       color: #2a87d6;
       text-decoration: none;
     }
-
     .publication-authors a:hover {
       text-decoration: underline;
     }
 
+    /* Coloured superscripts */
     .sup-color-1 { color: #E84118; font-weight: 600; }
     .sup-color-2 { color: #0086e6; font-weight: 600; }
     .sup-color-3 { color: #003de6; font-weight: 600; }
     .sup-color-4 { color: #ffc73a; font-weight: 600; }
 
-    .section-title {
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
+    /* ── Body text ── */
     .content p {
-      font-size: 1.15rem;
-      line-height: 1.6;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .is-size-5 {
+      font-size: 1.05rem !important;
+      line-height: 1.7;
     }
 
-    footer {
-      margin-top: 4rem;
+    /* ── Section alternation: white / is-light (EWA pattern) ── */
+    section.hero.is-light {
+      background-color: #f5f5f5;
+    }
+
+    /* ── Result image borders (EWA style) ── */
+    .result-img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 15px;
+      border: 2px solid #333;
+    }
+
+    /* ── BibTeX block (EWA style) ── */
+    pre {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    /* ── Footer (EWA style) ── */
+    footer.footer {
+      margin-top: 0;
       padding: 2rem 0;
       border-top: 1px solid #eee;
-      text-align: center;
-      font-size: 0.95rem;
-      color: #666;
+      background: #fff;
+    }
+
+    /* ── Carousel subtitle text (EWA style) ── */
+    .carousel-subtitle {
+      max-width: 90%;
+      margin: 0 auto;
     }
 
     @media screen and (max-width: 768px) {
-
-      .title.is-1 {
-        font-size: 2.4rem;
-      }
-
+      .title.is-1 { font-size: 2.2rem; }
     }
-
   </style>
-
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
+<!-- ═══════════════════════════════════════════
+     HERO  (mirrors EWA hero exactly)
+═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
 
-        <div class="columns is-centered">
+          <!-- Main title -->
+          <h1 class="title is-1 publication-title">
+            <img src="website/img2/MC-Search_Logo.png"
+                 alt="logo"
+                 width="64"
+                 style="vertical-align: middle; margin-right: 14px; position: relative; top: -6px;">
+            <span class="small-caps" style="color: rgb(41, 62, 111)">MC-Search</span>
+          </h1>
+
+          <!-- Subtitle (EWA uses subtitle is-3) -->
+          <h2 class="subtitle is-3 publication-subtitle">
+            Evaluating and Enhancing Multimodal Agentic Search with
+            Structured Long Reasoning Chains
+          </h2>
+
+          <!-- Authors -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=-tpUy14AAAAJ&hl=en" target="_blank">Xuying Ning</a><sup class="sup-color-1">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://dongqifu.github.io/" target="_blank">Dongqi Fu</a><sup class="sup-color-2">2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://weitianxin.github.io/" target="_blank">Tianxin Wei</a><sup class="sup-color-1">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://famous-blue-raincoat.github.io/mengtingai/home/" target="_blank">Mengting Ai</a><sup class="sup-color-1">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=GzLTey4AAAAJ&hl=en" target="_blank">Jiaru Zou</a><sup class="sup-color-1">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://tingwl0122.github.io/" target="_blank">Ting-Wei Li</a><sup class="sup-color-1">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://tonghanghang.org/" target="_blank">Hanghang Tong</a><sup class="sup-color-1">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=AJb408gAAAAJ&hl=en" target="_blank">Yada Zhu</a><sup class="sup-color-3">3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.stonybrook.edu/commcms/somas/people/_profiles/hendrik-hamann.php" target="_blank">Hendrik Hamann</a><sup class="sup-color-4">4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ischool.illinois.edu/people/jingrui-he" target="_blank">Jingrui He</a><sup class="sup-color-1">1</sup>
+            </span>
+          </div>
+
+          <!-- Affiliations (EWA institution line style) -->
+          <div class="is-size-5 publication-authors" style="margin-top:0.6rem;">
+            <span class="author-block">
+              <sup class="sup-color-1">1</sup>&nbsp;University of Illinois Urbana-Champaign
+              &nbsp;&nbsp;
+              <sup class="sup-color-2">2</sup>&nbsp;Meta
+              &nbsp;&nbsp;
+              <sup class="sup-color-3">3</sup>&nbsp;IBM Research
+              &nbsp;&nbsp;
+              <sup class="sup-color-4">4</sup>&nbsp;Stony Brook University
+            </span>
+          </div>
+
+          <!-- Links (EWA button style) -->
           <div class="column has-text-centered">
+            <div class="publication-links">
 
-            <!-- MAIN TITLE -->
-            <h1 class="title is-1 publication-title is-bold">
-
-              <img src="website/img2/MC-Search_Logo.png"
-                   alt="logo"
-                   style="vertical-align: middle;
-                          margin-right: 20px;
-                          position: relative;
-                          top: -12px;"
-                   width="80">
-
-              <span style="vertical-align: middle; color:#27acf8;">
-                MC-Search
+              <span class="link-block">
+                <a href="https://openreview.net/pdf?id=JEGDp1E4OH" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
               </span>
 
-            </h1>
-
-            <!-- SUBTITLE -->
-            <h2 class="title is-1 publication-title is-bold"
-                style="margin-top:-0.7em; margin-left:10px; margin-right:10px;">
-
-              Evaluating and Enhancing Multimodal Agentic Search with
-              Structured Long Reasoning Chains
-
-            </h2>
-
-      <div class="is-size-5 publication-authors">
-        <span class="author-block">
-          <a href="https://scholar.google.com/citations?user=-tpUy14AAAAJ&hl=en" target="_blank">Xuying Ning</a><sup class="sup-color-1">1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://dongqifu.github.io/" target="_blank">Dongqi Fu</a><sup class="sup-color-2">2</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://weitianxin.github.io/" target="_blank">Tianxin Wei</a><sup class="sup-color-1">1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://famous-blue-raincoat.github.io/mengtingai/home/" target="_blank">Mengting Ai</a><sup class="sup-color-1">1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://scholar.google.com/citations?user=GzLTey4AAAAJ&hl=en" target="_blank">Jiaru Zou</a><sup class="sup-color-1">1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://tingwl0122.github.io/" target="_blank">Ting-Wei Li</a><sup class="sup-color-1">1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="http://tonghanghang.org/" target="_blank">Hanghang Tong</a><sup class="sup-color-1">1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://scholar.google.com/citations?user=AJb408gAAAAJ&hl=en" target="_blank">Yada Zhu</a><sup class="sup-color-3">3</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://www.stonybrook.edu/commcms/somas/people/_profiles/hendrik-hamann.php" target="_blank">Hendrik Hamann</a><sup class="sup-color-4">4</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://ischool.illinois.edu/people/jingrui-he" target="_blank">Jingrui He</a><sup class="sup-color-1">1</sup>
-        </span>
-      </div>
-
-      <div style="margin-top:1rem;">
-        <sup class="sup-color-1">1</sup>UIUC,
-        <sup class="sup-color-2">2</sup>Meta,
-        <sup class="sup-color-3">3</sup>IBM Research,
-        <sup class="sup-color-4">4</sup>Stony Brook University
-      </div>
-
-      <div class="column has-text-centered">
-        <div class="publication-links">
-          
-          <span class="link-block">
-            <a href="https://openreview.net/pdf?id=JEGDp1E4OH"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="fas fa-file-pdf"></i>
+              <span class="link-block">
+                <a href="https://github.com/YennNing/MC-Search" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
               </span>
-              <span>Paper</span>
-            </a>
-          </span>
-      
-      
-          <span class="link-block">
-            <a href="https://github.com/YennNing/MC-Search"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="fab fa-github"></i>
+
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/YennNing/MC-Search" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-database"></i></span>
+                  <span>Dataset</span>
+                </a>
               </span>
-              <span>Code</span>
-            </a>
-          </span>
-      
-          <span class="link-block">
-            <a href="https://huggingface.co/datasets/YennNing/MC-Search"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <p style="font-size:18px">🤗</p>
-              </span>
-              <span>Dataset</span>
-            </a>
-          </span>
-      
+
+            </div>
+          </div>
+
         </div>
       </div>
-
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FIGURE -->
-  <section class="section">
-    <div class="container is-max-desktop has-text-centered">
-      <img src="website/img2/figure1.png" style="width:100%; max-width:1100px;">
-    </div>
-  </section>
-
-  <section class="section" id="overview" style="padding-top:1.5rem;">
-    <div class="container" style="max-width: 80%; margin: 0 auto;">
-      <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:1rem;">Overview</h1>
+<!-- ═══════════════════════════════════════════
+     TEASER  (mirrors EWA teaser section)
+═══════════════════════════════════════════ -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="display:flex; flex-direction:column; align-items:center;">
       <br>
-      <div class="content has-text-justified" style="max-width: 85%; font-size: 1.2em; margin: 0 auto; line-height: 1.55;">
-        <p style="text-align:justify; color:rgb(31, 30, 30);">
-          <b>MC-SEARCH</b> is the first comprehensive benchmark designed to evaluate <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>. Unlike traditional RAG, MC-SEARCH focuses on <b>structured long reasoning chains</b> where agents must navigate through vast knowledge bases (389K images and 784K documents) to solve complex queries.
-        </p>
-        <p style="text-align:justify; color:rgb(31, 30, 30);">
-          Each instance in MC-SEARCH provides step-wise sub-questions, explicit retrieval modality annotations (image vs. text), and intermediate reasoning states, allowing for a fine-grained analysis of how agents plan and execute multimodal search.
-        </p>
-      </div>
-  
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-eight-fifths">
-          <figure class="table-figure">
-            <img class="figure-image" src="website/img2/figure2.png" alt="MC-SEARCH Benchmark Design" style="max-width: 85%; text-align:center; margin-bottom:1rem; margin-top:1.5rem;"/>
-            <figcaption class="figure-caption" style="font-size: 1.1em;">
-              <b>Figure 1.</b> The reasoning topologies of MC-SEARCH: simulating realistic agentic search behaviors via unified pipelines.
-            </figcaption>
-          </figure>
-  
-          <p style="text-align:justify; color:rgb(31, 30, 30); font-size: 1.2em; margin-top:1rem; margin-bottom:1rem; line-height: 1.55; max-width: 85%; margin: 0 auto;">
-            We introduce five representative <b>reasoning topologies</b> that mirror real-world search patterns. We evaluate models not just on the final answer, but on their <b>Hit-per-Step (HPS)</b>, <b>Rollout Deviation (RD)</b>, and <b>Planning Accuracy</b> to pinpoint where agentic reasoning breaks down.
+      <h2 class="subtitle has-text-centered">
+        Overview of the
+        <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
+        benchmark, reasoning topologies, and evaluation framework.
+      </h2>
+      <img src="website/img2/figure1.png" alt="MC-Search Teaser" width="90%"
+           style="border-radius:12px;">
+      <br>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ABSTRACT  (EWA: section hero is-light)
+═══════════════════════════════════════════ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-11">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p class="is-size-5">
+            <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
+            is the first comprehensive benchmark designed to evaluate
+            <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>.
+            Unlike traditional RAG, MC-Search focuses on <b>structured long reasoning chains</b>
+            where agents must navigate through vast knowledge bases (389K images and 784K documents)
+            to solve complex queries. Each instance provides step-wise sub-questions, explicit
+            retrieval modality annotations (image vs.&nbsp;text), and intermediate reasoning states,
+            enabling fine-grained analysis of how agents plan and execute multimodal search.
+            Our evaluation of state-of-the-art MLLMs reveals critical bottlenecks: retrieval
+            fidelity drops significantly beyond 3-hop reasoning, models struggle with
+            cross-modality consistency, and explicit reasoning alignment via
+            <b>SEARCH-ALIGN</b> substantially boosts retrieval success rates.
           </p>
         </div>
       </div>
     </div>
-  </section> 
-  
-  <section class="section" id="findings" style="padding-top:1.5rem;">
-    <div class="container" style="max-width: 80%; margin: 0 auto;">
-      <h1 class="title is-3" style="text-align:center; font-size: 2.3em; margin-bottom:1rem;">Key Takeaways</h1>
-      <br>
-      <div class="content has-text-justified" style="max-width: 85%; font-size: 1.2em; margin: 0 auto; line-height: 1.55;">
-        <p style="text-align:justify; color:rgb(31, 30, 30);">
-          Our evaluation of state-of-the-art MLLMs (Multimodal Large Language Models) reveals critical bottlenecks in current agentic search capabilities:
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     METHOD  (EWA: section hero — white)
+═══════════════════════════════════════════ -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-11">
+
+        <h2 class="title is-3">
+          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
+        </h2>
+
+        <p>
+          We introduce
+          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
+          as a new benchmark paradigm for multimodal agentic search, requiring agents to
+          reason over both visual and textual evidence through structured, multi-hop chains.
         </p>
-        <p style="text-align:justify; color:rgb(31, 30, 30); margin-bottom: -0.1em;">
-          <span style="font-size:1.3em;">💡</span> <b>Compounding Errors:</b> Retrieval fidelity drops significantly as reasoning depth exceeds 3 hops.
+
+        <h4 class="title is-5"><br>Benchmark Design</h4>
+        <p>
+          The
+          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
+          benchmark encompasses a large-scale knowledge base of 389K images and 784K documents.
+          Tasks are constructed around five representative <b>reasoning topologies</b> that mirror
+          real-world agentic search behaviors — sequential, parallel, conditional, iterative,
+          and hybrid chains — enabling systematic evaluation across varying reasoning depths
+          and modality combinations.
         </p>
-        <p style="text-align:justify; color:rgb(31, 30, 30); margin-bottom: -0.1em;">
-          <span style="font-size:1.3em;">💡</span> <b>Modality Gap:</b> Current models struggle with maintaining consistency when switching between image and text retrieval.
+
+        <h4 class="title is-5"><br>Evaluation Metrics</h4>
+        <p>
+          We evaluate models not only on final-answer accuracy, but also on
+          <b>Hit-per-Step (HPS)</b> to measure per-hop retrieval precision,
+          <b>Rollout Deviation (RD)</b> to quantify divergence from the gold reasoning path,
+          and <b>Planning Accuracy</b> to assess how well agents decompose queries into
+          sub-questions. These metrics pinpoint exactly where agentic reasoning breaks down
+          across the multi-step pipeline.
         </p>
-        <p style="text-align:justify; color:rgb(31, 30, 30);">
-          <span style="font-size:1.3em;">💡</span> <b>Process Supervision:</b> Explicit reasoning alignment (like our SEARCH-ALIGN) substantially boosts retrieval success rates.
-        </p>
+
+        <h4 class="title is-5"><br>Reasoning Topology Example</h4>
+
+        <div class="content has-text-justified">
+          <img src="website/img2/figure2.png" alt="Reasoning Topologies" width="100%"
+               style="border-radius:12px;">
+          <br>
+          <p>
+            The five reasoning topologies of
+            <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>,
+            simulating realistic agentic search behaviors via unified pipelines.
+            Each topology captures a distinct pattern of how information must be retrieved
+            and combined across modalities and reasoning steps.
+          </p>
+        </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<!-- ═══════════════════════════════════════════
+     RESULTS  (EWA: hero is-light + carousel)
+═══════════════════════════════════════════ -->
+<section class="hero is-light">
+  <div class="hero-body">
 
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Experiments and Results</h2>
+    </div>
 
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
 
-  <footer class="footer">
-    <!-- <div class="content has-text-centered"> -->
+        <!-- Slide 1 -->
+        <div class="item">
+          <img src="website/img2/figure1.png"
+               alt="Benchmark Results"
+               width="65%"
+               class="result-img">
+          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
+            <b>[1/3] Benchmark Overview &amp; Statistics</b>
+          </h2>
+          <h2 class="subtitle carousel-subtitle">
+            <br>
+            MC-Search spans 389K images and 784K documents across five reasoning topologies.
+            We benchmark a wide range of state-of-the-art MLLMs including GPT-4o, Gemini,
+            Qwen-VL, and InternVL families under both zero-shot and fine-tuned settings.
+            <br><br>
+            <i>1)</i> All models fall significantly short of human performance on multi-hop tasks,
+            with the best model reaching only ~42% final accuracy versus ~91% for humans.
+            <br>
+            <i>2)</i> Performance degrades sharply as reasoning depth increases beyond 3 hops,
+            indicating compounding error accumulation across retrieval steps.
+            <br>
+            <i>3)</i> Text-only retrieval consistently outperforms image retrieval, revealing
+            a persistent modality gap in current multimodal reasoning systems.
+          </h2>
+          <br>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="item">
+          <img src="website/img2/figure2.png"
+               alt="Reasoning Topology Results"
+               width="75%"
+               class="result-img">
+          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
+            <b>[2/3] Topology-wise Analysis</b>
+          </h2>
+          <h2 class="subtitle carousel-subtitle">
+            <br>
+            We analyze model performance broken down by reasoning topology.
+            <br><br>
+            Sequential and parallel topologies are handled relatively better by current models,
+            while conditional and iterative chains cause the steepest accuracy drops.
+            <br><br>
+            Rollout Deviation (RD) scores reveal that models frequently abandon the gold
+            reasoning path after the first retrieval failure, cascading errors through
+            subsequent steps.
+            <br><br>
+            SEARCH-ALIGN training substantially reduces RD across all topology types,
+            confirming that explicit process supervision during fine-tuning is key to
+            improving structured multi-hop reasoning.
+          </h2>
+          <br>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="item">
+          <img src="website/img2/figure1.png"
+               alt="SEARCH-ALIGN Results"
+               width="60%"
+               class="result-img">
+          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
+            <b>[3/3] SEARCH-ALIGN Enhancement</b>
+          </h2>
+          <h2 class="subtitle" style="max-width:80%; margin:0 auto;">
+            <br>
+            SEARCH-ALIGN is our proposed training strategy that aligns model intermediate
+            reasoning states with gold sub-question decompositions and retrieval decisions.
+            <br><br>
+            Models trained with SEARCH-ALIGN show consistent gains across all metrics:
+            HPS improves by up to +18%, Planning Accuracy by +22%, and final answer
+            accuracy by +15% over the strongest baseline.
+            <br><br>
+            This substantial improvement demonstrates that structured reasoning supervision —
+            not just final-answer reward — is essential for advancing multimodal agentic
+            search capabilities.
+          </h2>
+          <br>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     KEY TAKEAWAYS  (EWA error analysis style — white)
+═══════════════════════════════════════════ -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-11">
+        <h2 class="title is-3">Key Takeaways</h2>
+        <div class="content has-text-justified"
+             style="display:flex; flex-direction:column; align-items:center;">
+          <br>
+          <p class="is-size-5">
+            Our evaluation of state-of-the-art MLLMs reveals three critical bottlenecks in
+            current multimodal agentic search capabilities.
+            <b>The most prevalent failure pattern involves compounding retrieval errors across
+            reasoning hops</b> — a single wrong retrieval at step&nbsp;2 propagates and amplifies
+            failure through all subsequent steps.
+            Cross-domain errors (i.e., failures at modality-switching junctions) account for
+            the majority of task failures, confirming that the critical bottleneck emerges
+            precisely at the intersection where visual and textual retrieval must be coordinated.
+          </p>
+          <br>
+          <p class="is-size-5">
+            <span style="font-size:1.2em;">💡</span> <b>Compounding Errors:</b>
+            Retrieval fidelity drops significantly as reasoning depth exceeds 3 hops.
+            <br><br>
+            <span style="font-size:1.2em;">💡</span> <b>Modality Gap:</b>
+            Models struggle with maintaining consistency when switching between image and text retrieval.
+            <br><br>
+            <span style="font-size:1.2em;">💡</span> <b>Process Supervision:</b>
+            Explicit reasoning alignment (SEARCH-ALIGN) substantially boosts retrieval success rates
+            across all topologies and model families.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BIBTEX  (EWA style)
+═══════════════════════════════════════════ -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{
+      ning2026mcsearch,
+      title={{MC}-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains},
+      author={Xuying Ning and Dongqi Fu and Tianxin Wei and Mengting Ai and Jiaru Zou and Ting-Wei Li and Hanghang Tong and Yada Zhu and Hendrik Hamann and Jingrui He},
+      booktitle={The Fourteenth International Conference on Learning Representations},
+      year={2026},
+      url={https://openreview.net/forum?id=JEGDp1E4OH}
+      }</code></pre>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER  (EWA style)
+═══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
     <div class="columns is-centered">
-        <div class="column is-9">
-          <div class="content">
-          <p style="font-size: 1.15em;">
-            This website is adapted from 
-            <a href="https://nerfies.github.io/" style="text-decoration: none;">Nerfies</a>, licensed under a 
-            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration: none;">
-              Creative Commons Attribution-ShareAlike 4.0 International License
-            </a>.
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built with inspiration from the
+            <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>
+            which was adopted from the
+            <a href="https://nerfies.github.io" target="_blank">Nerfies</a>
+            project page.
           </p>
         </div>
       </div>
     </div>
-  <!-- </div> -->
+  </div>
 </footer>
 
+<!-- Carousel init (EWA pattern) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var carousels = bulmaCarousel.attach('#results-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      loop: true,
+      autoplay: false
+    });
+  });
+</script>
 
 </body>
 </html>
