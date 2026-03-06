@@ -244,27 +244,37 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-     ABSTRACT  (is-light, text only)
+     ABSTRACT  (white background)
 ═══════════════════════════════════════════ -->
-<section class="section hero is-light">
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-11">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p class="is-size-5">
-            <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
-            is the first comprehensive benchmark designed to evaluate
-            <b>Multimodal Agentic Retrieval-Augmented Generation (MM-RAG)</b>.
-            Unlike traditional RAG, MC-Search focuses on <b>structured long reasoning chains</b>
-            where agents must navigate through vast knowledge bases (389K images and 784K documents)
-            to solve complex queries. Each instance provides step-wise sub-questions, explicit
-            retrieval modality annotations (image vs.&nbsp;text), and intermediate reasoning states,
-            enabling fine-grained analysis of how agents plan and execute multimodal search.
-            Our evaluation of state-of-the-art MLLMs reveals critical bottlenecks: retrieval
-            fidelity drops significantly beyond 3-hop reasoning, models struggle with
-            cross-modality consistency, and explicit reasoning alignment via
-            <b>SEARCH-ALIGN</b> substantially boosts retrieval success rates.
+            With the increasing demand for step-wise, cross-modal, and knowledge-grounded reasoning,
+            multimodal large language models (MLLMs) are evolving beyond the traditional fixed
+            retrieve-then-generate paradigm toward more sophisticated agentic multimodal
+            retrieval-augmented generation (MM-RAG). Existing benchmarks, however, mainly focus on
+            simplified QA with short retrieval chains, leaving adaptive planning and multimodal
+            reasoning underexplored. We present
+            <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>,
+            the first benchmark for agentic MM-RAG with long, step-wise annotated reasoning chains
+            spanning five representative reasoning structures. Each example specifies sub-questions,
+            retrieval modalities, supporting facts, and intermediate answers, with fidelity ensured
+            by <span class="small-caps" style="color: rgb(41, 62, 111)"><b>HAVE</b></span>
+            (Hop-wise Attribution and Verification of Evidence), resulting in 3,333 high-quality
+            examples averaging 3.7 hops. Beyond answer accuracy,
+            <span class="small-caps" style="color: rgb(41, 62, 111)">MC-Search</span>
+            introduces new process-level metrics for reasoning quality, stepwise retrieval and
+            planning accuracy. By developing a unified agentic MM-RAG pipeline, we benchmark six
+            leading MLLMs and reveal systematic issues such as over- and under-retrieval and
+            modality-misaligned planning. Finally, we introduce
+            <span class="small-caps" style="color: rgb(41, 62, 111)"><b>Search-Align</b></span>,
+            a process-supervised fine-tuning framework leveraging verified reasoning chains, showing
+            that our data not only enables faithful evaluation but also improves planning and
+            retrieval fidelity in open-source MLLMs.
           </p>
         </div>
       </div>
@@ -276,7 +286,7 @@
      TEASER  (white background, full-width figure)
 ═══════════════════════════════════════════ -->
 <section class="hero teaser" style="background: #fff;">
-  <div class="container is-max-desktop">
+  <div class="container" style="max-width: 1200px; padding: 0 1.5rem;">
     <div class="hero-body" style="display:flex; flex-direction:column; align-items:center;">
       <img src="website/img2/teaser_fig_mc_search.png" alt="MC-Search Teaser"
            style="width:100%; border-radius:12px;">
@@ -288,6 +298,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- ═══════════════════════════════════════════
      METHOD  (EWA: section hero — white)
