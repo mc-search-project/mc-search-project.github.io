@@ -250,7 +250,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-11">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
           <p class="is-size-5">
             With the increasing demand for step-wise, cross-modal, and knowledge-grounded reasoning,
@@ -330,6 +330,17 @@
           and modality combinations.
         </p>
 
+        <!-- figure2 moved here, under Benchmark Design -->
+        <div style="margin-top:1.5rem;">
+          <img src="website/img2/figure2.png" alt="Reasoning Topologies" width="100%"
+               style="border-radius:12px;">
+          <p style="margin-top:0.6rem; font-size:0.88rem; color:#888; text-align:center;">
+            The five reasoning topologies of
+            <span class="small-caps" style="color:#999;"><b>MC-Search</b></span>,
+            simulating realistic agentic search behaviors via unified pipelines.
+          </p>
+        </div>
+
         <h4 class="title is-5"><br>Evaluation Metrics</h4>
         <p>
           We evaluate models not only on final-answer accuracy, but also on
@@ -340,23 +351,135 @@
           across the multi-step pipeline.
         </p>
 
-        <h4 class="title is-5"><br>Reasoning Topology Example</h4>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="content has-text-justified">
-          <img src="website/img2/figure2.png" alt="Reasoning Topologies" width="100%"
-               style="border-radius:12px;">
+<!-- ═══════════════════════════════════════════
+     TOPOLOGY EXAMPLES CAROUSEL  (is-light)
+═══════════════════════════════════════════ -->
+<section class="hero is-light">
+  <div class="hero-body">
+
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Reasoning Topology Examples</h2>
+    </div>
+
+    <div class="container">
+      <div id="topology-carousel" class="carousel results-carousel">
+
+        <!-- Topology 1: Sequential -->
+        <div class="item">
+          <img src="website/img2/topology_sequential.png"
+               alt="Sequential Topology"
+               width="70%"
+               class="result-img">
+          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
+            <b>[1/5] Sequential Chain</b>
+          </h2>
+          <h2 class="subtitle carousel-subtitle">
+            <br>
+            In the <b>sequential</b> topology, each retrieval step depends strictly on the
+            result of the previous one, forming a linear reasoning chain.
+            The agent must retrieve evidence step-by-step, where each hop builds directly
+            upon the answer obtained in the prior hop.
+            <br><br>
+            This structure tests the agent's ability to maintain coherent context across
+            multiple retrieval steps without losing track of intermediate results.
+          </h2>
           <br>
-          <p>
-            The five reasoning topologies of
-            <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>,
-            simulating realistic agentic search behaviors via unified pipelines.
-            Each topology captures a distinct pattern of how information must be retrieved
-            and combined across modalities and reasoning steps.
-          </p>
+        </div>
+
+        <!-- Topology 2: Parallel -->
+        <div class="item">
+          <img src="website/img2/topology_parallel.png"
+               alt="Parallel Topology"
+               width="70%"
+               class="result-img">
+          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
+            <b>[2/5] Parallel Chain</b>
+          </h2>
+          <h2 class="subtitle carousel-subtitle">
+            <br>
+            In the <b>parallel</b> topology, multiple independent sub-questions are retrieved
+            simultaneously and their results are aggregated to form the final answer.
+            <br><br>
+            This structure evaluates the agent's capacity for multi-thread planning —
+            decomposing a complex query into parallel retrieval tasks and synthesizing
+            evidence from different modalities at once.
+          </h2>
+          <br>
+        </div>
+
+        <!-- Topology 3: Conditional -->
+        <div class="item">
+          <img src="website/img2/topology_conditional.png"
+               alt="Conditional Topology"
+               width="70%"
+               class="result-img">
+          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
+            <b>[3/5] Conditional Chain</b>
+          </h2>
+          <h2 class="subtitle carousel-subtitle">
+            <br>
+            In the <b>conditional</b> topology, the retrieval path branches based on
+            intermediate answers — different results trigger different follow-up sub-questions.
+            <br><br>
+            This structure requires adaptive planning: the agent must dynamically adjust
+            its retrieval strategy depending on what it discovers at each step, making it
+            the most sensitive topology to compounding errors.
+          </h2>
+          <br>
+        </div>
+
+        <!-- Topology 4: Iterative -->
+        <div class="item">
+          <img src="website/img2/topology_iterative.png"
+               alt="Iterative Topology"
+               width="70%"
+               class="result-img">
+          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
+            <b>[4/5] Iterative Chain</b>
+          </h2>
+          <h2 class="subtitle carousel-subtitle">
+            <br>
+            In the <b>iterative</b> topology, the agent repeatedly refines its query and
+            retrieval based on accumulated evidence, cycling through retrieval steps until
+            a sufficient answer is obtained.
+            <br><br>
+            This structure tests the model's ability to recognize retrieval gaps and
+            self-correct, reflecting real-world search behavior where a single pass is
+            rarely sufficient for complex questions.
+          </h2>
+          <br>
+        </div>
+
+        <!-- Topology 5: Hybrid -->
+        <div class="item">
+          <img src="website/img2/topology_hybrid.png"
+               alt="Hybrid Topology"
+               width="70%"
+               class="result-img">
+          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
+            <b>[5/5] Hybrid Chain</b>
+          </h2>
+          <h2 class="subtitle carousel-subtitle">
+            <br>
+            The <b>hybrid</b> topology combines elements of sequential, parallel, and
+            conditional structures within a single reasoning chain.
+            <br><br>
+            It represents the most complex and realistic retrieval scenario, requiring
+            the agent to flexibly switch strategies across different segments of the
+            reasoning chain — demanding the highest degree of cross-modal planning
+            and multi-step coordination.
+          </h2>
+          <br>
         </div>
 
       </div>
     </div>
+
   </div>
 </section>
 
