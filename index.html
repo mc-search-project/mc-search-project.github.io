@@ -309,7 +309,7 @@
       <div class="column is-11">
 
         <h2 class="title is-3">
-          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
+          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search Benchmark</b></span>
         </h2>
 
         <p>
@@ -323,10 +323,9 @@
         <p>
           The
           <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
-          benchmark encompasses a large-scale knowledge base of 389K images and 784K documents.
+          benchmark encompasses 3,333 high-quality examples with a large-scale offline knowledge base of 389K images and 784K documents.
           Tasks are constructed around five representative <b>reasoning topologies</b> that mirror
-          real-world agentic search behaviors — sequential, parallel, conditional, iterative,
-          and hybrid chains — enabling systematic evaluation across varying reasoning depths
+          real-world agentic search behaviors — <b>Image-Initiated Chain</b>, <b>Text-Initiated Chain</b>, <b>Parallel Image-Text Fork</b>, <b>Multi-Images Fork</b>, and <b>Text-Only Chain</b> — enabling systematic evaluation across varying reasoning depths
           and modality combinations.
         </p>
 
@@ -363,116 +362,105 @@
   <div class="hero-body">
 
     <div class="columns is-centered has-text-centered">
-      <h2 class="title is-3">Reasoning Topology Examples</h2>
+      <h2 class="title is-3">Data Examples</h2>
     </div>
 
     <div class="container">
       <div id="topology-carousel" class="carousel results-carousel">
 
-        <!-- Topology 1: Sequential -->
+        <!-- Topology 1: Image-Initiated Chain -->
         <div class="item">
-          <img src="website/img2/topology_sequential.png"
-               alt="Sequential Topology"
+          <img src="website/img2/image_initiated.png"
+               alt="Image-Initiated Chain"
                width="70%"
                class="result-img">
           <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>[1/5] Sequential Chain</b>
+            <b>[1/5] Image-Initiated Chain</b>
           </h2>
           <h2 class="subtitle carousel-subtitle">
             <br>
-            In the <b>sequential</b> topology, each retrieval step depends strictly on the
-            result of the previous one, forming a linear reasoning chain.
-            The agent must retrieve evidence step-by-step, where each hop builds directly
-            upon the answer obtained in the prior hop.
+            Reasoning starts from an <b>image retrieval step</b> and then proceeds with
+            textual retrieval to gather factual knowledge.
             <br><br>
-            This structure tests the agent's ability to maintain coherent context across
-            multiple retrieval steps without losing track of intermediate results.
+            The image serves as the anchor for identifying entities that guide subsequent
+            text-based reasoning.
           </h2>
           <br>
         </div>
 
-        <!-- Topology 2: Parallel -->
+        <!-- Topology 2: Text-Initiated Chain -->
         <div class="item">
-          <img src="website/img2/topology_parallel.png"
-               alt="Parallel Topology"
+          <img src="website/img2/text_initiated.png"
+               alt="Text-Initiated Chain"
                width="70%"
                class="result-img">
           <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>[2/5] Parallel Chain</b>
+            <b>[2/5] Text-Initiated Chain</b>
           </h2>
           <h2 class="subtitle carousel-subtitle">
             <br>
-            In the <b>parallel</b> topology, multiple independent sub-questions are retrieved
-            simultaneously and their results are aggregated to form the final answer.
+            Reasoning begins with <b>textual retrieval</b> to obtain key factual information
+            and later incorporates image retrieval for visual verification.
             <br><br>
-            This structure evaluates the agent's capacity for multi-thread planning —
-            decomposing a complex query into parallel retrieval tasks and synthesizing
-            evidence from different modalities at once.
+            This topology reflects workflows where structured knowledge is first identified
+            before grounding it in visual evidence.
           </h2>
           <br>
         </div>
 
-        <!-- Topology 3: Conditional -->
+        <!-- Topology 3: Parallel Image-Text Fork -->
         <div class="item">
-          <img src="website/img2/topology_conditional.png"
-               alt="Conditional Topology"
+          <img src="website/img2/parallel.png"
+               alt="Parallel Image-Text Fork"
                width="70%"
                class="result-img">
           <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>[3/5] Conditional Chain</b>
+            <b>[3/5] Parallel Image-Text Fork</b>
           </h2>
           <h2 class="subtitle carousel-subtitle">
             <br>
-            In the <b>conditional</b> topology, the retrieval path branches based on
-            intermediate answers — different results trigger different follow-up sub-questions.
+            Image and text retrieval are performed in <b>parallel branches</b> without
+            strict dependency between steps.
             <br><br>
-            This structure requires adaptive planning: the agent must dynamically adjust
-            its retrieval strategy depending on what it discovers at each step, making it
-            the most sensitive topology to compounding errors.
+            The model must coordinate evidence from both modalities and integrate them
+            to produce the final answer.
           </h2>
           <br>
         </div>
 
-        <!-- Topology 4: Iterative -->
+        <!-- Topology 4: Multi-Images Fork -->
         <div class="item">
-          <img src="website/img2/topology_iterative.png"
-               alt="Iterative Topology"
+          <img src="website/img2/multi.png"
+               alt="Multi-Images Fork"
                width="70%"
                class="result-img">
           <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>[4/5] Iterative Chain</b>
+            <b>[4/5] Multi-Images Fork</b>
           </h2>
           <h2 class="subtitle carousel-subtitle">
             <br>
-            In the <b>iterative</b> topology, the agent repeatedly refines its query and
-            retrieval based on accumulated evidence, cycling through retrieval steps until
-            a sufficient answer is obtained.
+            <b>Multiple images</b> are retrieved and compared to extract visual information
+            before turning to textual evidence for factual support.
             <br><br>
-            This structure tests the model's ability to recognize retrieval gaps and
-            self-correct, reflecting real-world search behavior where a single pass is
-            rarely sufficient for complex questions.
+            This structure emphasizes cross-image reasoning and visual comparison.
           </h2>
           <br>
         </div>
 
-        <!-- Topology 5: Hybrid -->
+        <!-- Topology 5: Text-Only Chain -->
         <div class="item">
-          <img src="website/img2/topology_hybrid.png"
-               alt="Hybrid Topology"
+          <img src="website/img2/text_chain.png"
+               alt="Text-Only Chain"
                width="70%"
                class="result-img">
           <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>[5/5] Hybrid Chain</b>
+            <b>[5/5] Text-Only Chain</b>
           </h2>
           <h2 class="subtitle carousel-subtitle">
             <br>
-            The <b>hybrid</b> topology combines elements of sequential, parallel, and
-            conditional structures within a single reasoning chain.
+            All reasoning steps rely purely on <b>textual retrieval</b> without using images.
             <br><br>
-            It represents the most complex and realistic retrieval scenario, requiring
-            the agent to flexibly switch strategies across different segments of the
-            reasoning chain — demanding the highest degree of cross-modal planning
-            and multi-step coordination.
+            It serves as a baseline topology focusing on sequential text-based reasoning.
           </h2>
           <br>
         </div>
@@ -482,6 +470,7 @@
 
   </div>
 </section>
+
 
 <!-- ═══════════════════════════════════════════
      RESULTS  (EWA: hero is-light + carousel)
