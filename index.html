@@ -504,7 +504,7 @@
 <!-- ═══════════════════════════════════════════
      RESULTS  (vertical, method-style)
 ═══════════════════════════════════════════ -->
-<section class="section hero is-light">
+<section class="section hero" style="background:#fff;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-11">
@@ -514,7 +514,7 @@
         </h2>
 
         <!-- RQ1 -->
-        <h4 class="title is-5"><br>Main Experiments</h4>
+        <h4 class="title is-5"><br>RQ1: Main Experiments</h4>
         <p>
           Closed-source models (e.g., <b>Gemini-2.5-Pro</b>) achieve the strongest overall performance.
           Open-source models lag mainly due to weaker planning and retrieval alignment.
@@ -537,11 +537,11 @@
         </table>
         <div style="margin-top:1.5rem; text-align:center;">
           <img src="website/img2/main_exp.png" alt="Main Experiments"
-               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
+               style="width:90%; display:inline-block;">
         </div>
 
         <!-- RQ2 -->
-        <h4 class="title is-5"><br><br>Chain Length &amp; Retrieval Iterations</h4>
+        <h4 class="title is-5"><br><br>RQ2: Chain Length &amp; Retrieval Iterations</h4>
         <p>
           Performance degrades systematically with longer chains and misaligned retrieval budgets:
         </p>
@@ -561,11 +561,11 @@
         </table>
         <div style="margin-top:1.5rem; text-align:center;">
           <img src="website/img2/rq3.png" alt="Chain Length and Retrieval"
-               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
+               style="width:90%; display:inline-block;">
         </div>
 
         <!-- RQ3: Modality Coverage -->
-        <h4 class="title is-5"><br><br>Modality Coverage</h4>
+        <h4 class="title is-5"><br><br>RQ3: Modality Coverage</h4>
         <p>
           Models exhibit a strong text-retrieval bias, exposing a significant visual grounding gap:
         </p>
@@ -581,11 +581,11 @@
         </table>
         <div style="margin-top:1.5rem; text-align:center;">
           <img src="website/img2/table4.png" alt="Modality Coverage"
-               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
+               style="width:90%; display:inline-block;">
         </div>
 
         <!-- RQ4: Error Analysis -->
-        <h4 class="title is-5"><br><br>Error Analysis</h4>
+        <h4 class="title is-5"><br><br>RQ4: Error Analysis</h4>
         <p>
           Most failures originate from evidence acquisition rather than downstream reasoning:
         </p>
@@ -601,7 +601,7 @@
         </table>
         <div style="margin-top:1.5rem; text-align:center;">
           <img src="website/img2/figure5.png" alt="Error Analysis"
-               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
+               style="width:90%; display:inline-block;">
         </div>
 
       </div>
@@ -616,7 +616,9 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-11">
-        <h2 class="title is-3">Key Takeaways</h2>
+        <h2 class="title is-3">
+          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>Key Takeaways</b></span>
+        </h2>
         <div class="content has-text-justified"
              style="display:flex; flex-direction:column; align-items:center;">
           <br>
@@ -652,8 +654,10 @@
      BIBTEX  (EWA style)
 ═══════════════════════════════════════════ -->
 <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Cite Our Work</h2>
+  <div class="column is-11">
+    <h2 class="title is-3">
+      <span class="small-caps" style="color: rgb(41, 62, 111)"><b>Citation</b></span>
+    </h2>
     <pre><code>@inproceedings{
       ning2026mcsearch,
       title={{MC}-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains},
