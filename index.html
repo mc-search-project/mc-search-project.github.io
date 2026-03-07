@@ -508,87 +508,88 @@
   <div class="hero-body">
 
     <div class="columns is-centered has-text-centered">
-      <h2 class="title is-3">Experiments and Results</h2>
+      <h2 class="title is-3">
+        <span class="small-caps" style="color: rgb(41, 62, 111)"><b></b>Experiments and Results</b></span>
     </div>
 
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
 
-        <!-- Slide 1 -->
+        <!-- Slide 1: RQ1 -->
         <div class="item">
-          <img src="website/img2/figure1.png"
-               alt="Benchmark Results"
-               width="65%"
+          <img src="website/img2/main_exp.png"
+               alt="Main Experiments"
+               width="95%"
                class="result-img">
           <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>[1/3] Benchmark Overview &amp; Statistics</b>
+            <b>RQ1: Main Experiments</b>
           </h2>
           <h2 class="subtitle carousel-subtitle">
             <br>
-            MC-Search spans 389K images and 784K documents across five reasoning topologies.
-            We benchmark a wide range of state-of-the-art MLLMs including GPT-4o, Gemini,
-            Qwen-VL, and InternVL families under both zero-shot and fine-tuned settings.
-            <br><br>
-            <i>1)</i> All models fall significantly short of human performance on multi-hop tasks,
-            with the best model reaching only ~42% final accuracy versus ~91% for humans.
-            <br>
-            <i>2)</i> Performance degrades sharply as reasoning depth increases beyond 3 hops,
-            indicating compounding error accumulation across retrieval steps.
-            <br>
-            <i>3)</i> Text-only retrieval consistently outperforms image retrieval, revealing
-            a persistent modality gap in current multimodal reasoning systems.
+            This table shows that closed-source models (e.g., Gemini-2.5-Pro) achieve the strongest overall performance,
+            while open-source models lag mainly due to weaker planning and retrieval alignment.
+            Process-level training with <b>SEARCH-ALIGN</b> significantly improves open-source models,
+            showing that structured reasoning supervision can effectively enhance multimodal search planning.
           </h2>
           <br>
         </div>
 
-        <!-- Slide 2 -->
+        <!-- Slide 2: RQ2 -->
         <div class="item">
-          <img src="website/img2/figure2.png"
-               alt="Reasoning Topology Results"
-               width="75%"
+          <img src="website/img2/rq3.png"
+               alt="Effect of Chain Length"
+               width="95%"
                class="result-img">
           <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>[2/3] Topology-wise Analysis</b>
+            <b>RQ2: Model Performance on Different Chain Lengths and Retrieval Iterations</b>
           </h2>
           <h2 class="subtitle carousel-subtitle">
             <br>
-            We analyze model performance broken down by reasoning topology.
-            <br><br>
-            Sequential and parallel topologies are handled relatively better by current models,
-            while conditional and iterative chains cause the steepest accuracy drops.
-            <br><br>
-            Rollout Deviation (RD) scores reveal that models frequently abandon the gold
-            reasoning path after the first retrieval failure, cascading errors through
-            subsequent steps.
-            <br><br>
-            SEARCH-ALIGN training substantially reduces RD across all topology types,
-            confirming that explicit process supervision during fine-tuning is key to
-            improving structured multi-hop reasoning.
+            Left figure shows that current MLLMs struggle to maintain stable planning and retrieval
+            across long reasoning trajectories, and their performance consistently declines as reasoning chains become longer,
+            with sharp drops beyond 4–5 hops.
+            Right figure shows that severe under-retrieval causes the largest performance degradation
+            because critical evidence is skipped, while moderate over-retrieval can slightly improve accuracy by recovering missing information,
+            but excessive retrieval introduces noise and reduces reasoning quality.
           </h2>
           <br>
         </div>
 
-        <!-- Slide 3 -->
+        
+        <!-- Slide 4: RQ4 -->
         <div class="item">
-          <img src="website/img2/figure1.png"
-               alt="SEARCH-ALIGN Results"
-               width="60%"
+          <img src="website/img2/table4.png"
+               alt="Modality Coverage"
+               width="90%"
                class="result-img">
           <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>[3/3] SEARCH-ALIGN Enhancement</b>
+            <b>RQ4: Modality Coverage</b>
           </h2>
-          <h2 class="subtitle" style="max-width:80%; margin:0 auto;">
+          <h2 class="subtitle carousel-subtitle">
             <br>
-            SEARCH-ALIGN is our proposed training strategy that aligns model intermediate
-            reasoning states with gold sub-question decompositions and retrieval decisions.
-            <br><br>
-            Models trained with SEARCH-ALIGN show consistent gains across all metrics:
-            HPS improves by up to +18%, Planning Accuracy by +22%, and final answer
-            accuracy by +15% over the strongest baseline.
-            <br><br>
-            This substantial improvement demonstrates that structured reasoning supervision —
-            not just final-answer reward — is essential for advancing multimodal agentic
-            search capabilities.
+            This table shows that models exhibit a strong bias toward text retrieval,
+            maintaining high text coverage but much weaker image retrieval coverage.
+            Without explicit image cues, visual grounding deteriorates sharply,
+            revealing a significant modality gap in multimodal reasoning.
+          </h2>
+          <br>
+        </div>
+
+        <!-- Slide 5: RQ5 -->
+        <div class="item">
+          <img src="website/img2/figure5.png"
+               alt="Error Analysis"
+               width="90%"
+               class="result-img">
+          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
+            <b>RQ5: Error Analysis (Case Study)</b>
+          </h2>
+          <h2 class="subtitle carousel-subtitle">
+            <br>
+            This figure shows that the most common failures arise from retrieval failure,
+            hallucinated entities, and missing reasoning steps, indicating that errors primarily
+            originate from poor evidence acquisition rather than reasoning over retrieved content.
+            Structural reasoning mistakes occur less frequently but still challenge long multi-hop reasoning.
           </h2>
           <br>
         </div>
@@ -643,7 +644,7 @@
 ═══════════════════════════════════════════ -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+    <h2 class="title">Cite Our Work</h2>
     <pre><code>@inproceedings{
       ning2026mcsearch,
       title={{MC}-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains},
