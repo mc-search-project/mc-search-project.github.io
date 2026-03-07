@@ -502,101 +502,110 @@
 
 
 <!-- ═══════════════════════════════════════════
-     RESULTS  (EWA: hero is-light + carousel)
+     RESULTS  (vertical, method-style)
 ═══════════════════════════════════════════ -->
-<section class="hero is-light">
-  <div class="hero-body">
-
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <h2 class="title is-3">
-        <span class="small-caps" style="color: rgb(41, 62, 111)"><b></b>Experiments and Results</b></span>
-    </div>
+      <div class="column is-11">
 
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
+        <h2 class="title is-3">
+          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>Experiments and Results</b></span>
+        </h2>
 
-        <!-- Slide 1: RQ1 -->
-        <div class="item">
-          <img src="website/img2/main_exp.png"
-               alt="Main Experiments"
-               width="75%"
-               class="result-img">
-          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>RQ1: Main Experiments</b>
-          </h2>
-          <h2 class="subtitle carousel-subtitle">
-            <br>
-            This table shows that closed-source models (e.g., Gemini-2.5-Pro) achieve the strongest overall performance,
-            while open-source models lag mainly due to weaker planning and retrieval alignment.
-            Process-level training with <b>SEARCH-ALIGN</b> significantly improves open-source models,
-            showing that structured reasoning supervision can effectively enhance multimodal search planning.
-          </h2>
-          <br>
+        <!-- RQ1 -->
+        <h4 class="title is-5"><br>Main Experiments</h4>
+        <p>
+          Closed-source models (e.g., <b>Gemini-2.5-Pro</b>) achieve the strongest overall performance.
+          Open-source models lag mainly due to weaker planning and retrieval alignment.
+          Process-level training with <span class="small-caps" style="color:rgb(41,62,111)"><b>Search-Align</b></span>
+          significantly closes this gap:
+        </p>
+        <table style="margin-top:0.8rem; border-collapse:collapse; width:100%; text-align:left;">
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Closed-source lead</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">Gemini-2.5-Pro tops all metrics; GPT-4o follows closely on process-level scores.</td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Open-source gap</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">Primarily driven by poor planning decomposition and modality-misaligned retrieval.</td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Search-Align gains</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">Structured reasoning supervision consistently improves open-source MLLMs across all process-level metrics.</td>
+          </tr>
+        </table>
+        <div style="margin-top:1.5rem; text-align:center;">
+          <img src="website/img2/main_exp.png" alt="Main Experiments"
+               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
         </div>
 
-        <!-- Slide 2: RQ2 -->
-        <div class="item">
-          <img src="website/img2/rq3.png"
-               alt="Effect of Chain Length"
-               width="75%"
-               class="result-img">
-          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>RQ2: Model Performance on Different Chain Lengths and Retrieval Iterations</b>
-          </h2>
-          <h2 class="subtitle carousel-subtitle">
-            <br>
-            Left figure shows that current MLLMs struggle to maintain stable planning and retrieval
-            across long reasoning trajectories, and their performance consistently declines as reasoning chains become longer,
-            with sharp drops beyond 4–5 hops.
-            Right figure shows that severe under-retrieval causes the largest performance degradation
-            because critical evidence is skipped, while moderate over-retrieval can slightly improve accuracy by recovering missing information,
-            but excessive retrieval introduces noise and reduces reasoning quality.
-          </h2>
-          <br>
+        <!-- RQ2 -->
+        <h4 class="title is-5"><br><br>Chain Length &amp; Retrieval Iterations</h4>
+        <p>
+          Performance degrades systematically with longer chains and misaligned retrieval budgets:
+        </p>
+        <table style="margin-top:0.8rem; border-collapse:collapse; width:100%; text-align:left;">
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Chain length</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">Sharp accuracy drops beyond 4–5 hops; models fail to maintain stable planning over long trajectories.</td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Under-retrieval</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">Causes the largest degradation — critical evidence is skipped entirely.</td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Over-retrieval</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">Moderate excess can recover missing evidence; excessive retrieval introduces noise and hurts reasoning quality.</td>
+          </tr>
+        </table>
+        <div style="margin-top:1.5rem; text-align:center;">
+          <img src="website/img2/rq3.png" alt="Chain Length and Retrieval"
+               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
         </div>
 
-        
-        <!-- Slide 4: RQ4 -->
-        <div class="item">
-          <img src="website/img2/table4.png"
-               alt="Modality Coverage"
-               width="75%"
-               class="result-img">
-          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>RQ4: Modality Coverage</b>
-          </h2>
-          <h2 class="subtitle carousel-subtitle">
-            <br>
-            This table shows that models exhibit a strong bias toward text retrieval,
-            maintaining high text coverage but much weaker image retrieval coverage.
-            Without explicit image cues, visual grounding deteriorates sharply,
-            revealing a significant modality gap in multimodal reasoning.
-          </h2>
-          <br>
+        <!-- RQ3: Modality Coverage -->
+        <h4 class="title is-5"><br><br>Modality Coverage</h4>
+        <p>
+          Models exhibit a strong text-retrieval bias, exposing a significant visual grounding gap:
+        </p>
+        <table style="margin-top:0.8rem; border-collapse:collapse; width:100%; text-align:left;">
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Text bias</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">High text retrieval coverage across all models; image retrieval coverage is significantly weaker.</td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Visual grounding</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">Deteriorates sharply without explicit image cues, revealing a modality gap in current multimodal reasoning.</td>
+          </tr>
+        </table>
+        <div style="margin-top:1.5rem; text-align:center;">
+          <img src="website/img2/table4.png" alt="Modality Coverage"
+               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
         </div>
 
-        <!-- Slide 5: RQ5 -->
-        <div class="item">
-          <img src="website/img2/figure5.png"
-               alt="Error Analysis"
-               width="75%"
-               class="result-img">
-          <h2 class="subtitle has-text-centered carousel-subtitle"><br>
-            <b>RQ5: Error Analysis (Case Study)</b>
-          </h2>
-          <h2 class="subtitle carousel-subtitle">
-            <br>
-            This figure shows that the most common failures arise from retrieval failure,
-            hallucinated entities, and missing reasoning steps, indicating that errors primarily
-            originate from poor evidence acquisition rather than reasoning over retrieved content.
-            Structural reasoning mistakes occur less frequently but still challenge long multi-hop reasoning.
-          </h2>
-          <br>
+        <!-- RQ4: Error Analysis -->
+        <h4 class="title is-5"><br><br>Error Analysis</h4>
+        <p>
+          Most failures originate from evidence acquisition rather than downstream reasoning:
+        </p>
+        <table style="margin-top:0.8rem; border-collapse:collapse; width:100%; text-align:left;">
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Top failure modes</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">Retrieval failure, hallucinated entities, and missing reasoning steps dominate error cases.</td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">&#8226;&nbsp; Structural errors</td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">Less frequent but still challenging for long multi-hop chains — reasoning logic breaks down at later steps.</td>
+          </tr>
+        </table>
+        <div style="margin-top:1.5rem; text-align:center;">
+          <img src="website/img2/figure5.png" alt="Error Analysis"
+               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
         </div>
 
       </div>
     </div>
-
   </div>
 </section>
 
