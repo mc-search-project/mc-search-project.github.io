@@ -323,22 +323,51 @@
         </p>
 
         <h4 class="title is-5"><br>Benchmark Design</h4>
-        <p>
-          The
-          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
-          benchmark encompasses 3,333 high-quality examples with a large-scale offline knowledge base of 389K images and 784K documents.
-          Tasks are constructed around five representative <b>reasoning topologies</b> that mirror
-          real-world agentic search behaviors — <b>Image-Initiated Chain</b>, <b>Text-Initiated Chain</b>, <b>Parallel Image-Text Fork</b>, <b>Multi-Images Fork</b>, and <b>Text-Only Chain</b> — enabling systematic evaluation across varying reasoning depths
-          and modality combinations.
-        </p>
+  
+        <table style="margin-top:0.8rem; border-collapse:collapse; width:100%; text-align:left;">
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">
+              &#8226;&nbsp; Scale &amp; Quality
+            </td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">
+              3,333 examples averaging 3.7 hops, verified by <span class="small-caps" style="color:rgb(41,62,111)"><b>HAVE</b></span> (Hop-wise Attribution and Verification of Evidence).
+            </td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">
+              &#8226;&nbsp; Offline Knowledge Base
+            </td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">
+              389K images and 784K documents covering diverse real-world topics.
+            </td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">
+              &#8226;&nbsp; Diverse Reasoning Structures
+            </td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">
+              Five representative search-enhanced reasoning structures: image-initiated chain, text-initiated chain, parallel image-text fork, multi-images fork, and text-only chain.
+            </td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">
+              &#8226;&nbsp; Step-wise Annotation
+            </td>
+            <td style="padding:0.45rem 0 0.45rem 1rem; color:#444; font-size:0.97rem; line-height:1.6; border-left:2px solid #dde3ef;">
+              Each example specifies sub-questions, retrieval modalities, supporting facts, and intermediate answers at every hop.
+            </td>
+          </tr>
+        </table>
+
 
         <!-- figure2 moved here, under Benchmark Design -->
-        <div style="margin-top:1.5rem;">
-          <img src="website/img2/figure2_new.png" alt="Reasoning Topologies" width="100%"
+        <div style="margin-top:1.5rem; width:1200px; max-width:1200px; position:relative; left:50%; transform:translateX(-50%);">
+          <img src="website/img2/figure2.png" alt="Reasoning Topologies" width="100%"
                style="border-radius:12px;">
           <p style="margin-top:0.6rem; font-size:0.88rem; color:#888; text-align:center;">
-            Comparison of existing multimodal retrieval-augmented QA datasets. Distribution of the
-            five reasoning topologies in <span class="small-caps" style="color:#999;"><b></b>MC-Search</b></span>.
+            The five reasoning topologies of
+            <span class="small-caps" style="color:#999;"><b>MC-Search</b></span>,
+            simulating realistic agentic search behaviors via unified pipelines.
           </p>
         </div>
 
