@@ -361,13 +361,12 @@
 
 
         <!-- figure2 moved here, under Benchmark Design -->
-        <div style="margin-top:1.5rem; width:1200px; max-width:1200px; position:relative; left:50%; transform:translateX(-50%);">
-          <img src="website/img2/figure2.png" alt="Reasoning Topologies" width="100%"
+        <div style="margin-top:1.5rem;">
+          <img src="website/img2/figure2_new.png" alt="Reasoning Topologies" width="100%"
                style="border-radius:12px;">
           <p style="margin-top:0.6rem; font-size:0.88rem; color:#888; text-align:center;">
-            The five reasoning topologies of
-            <span class="small-caps" style="color:#999;"><b>MC-Search</b></span>,
-            simulating realistic agentic search behaviors via unified pipelines.
+            Comparison of existing multimodal retrieval-augmented QA datasets. Distribution of the
+            five reasoning topologies in <span class="small-caps" style="color:#999;"><b></b>MC-Search</b></span>.
           </p>
         </div>
 
@@ -423,45 +422,45 @@
 
         <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
           <img src="website/img2/image_initiated.png" alt="Image-Initiated Chain"
-               style="width:75%; border-radius:12px; border:2px solid #333; display:inline-block;">
+               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
           <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Image-Initiated Chain</p>
-          <p style="max-width:75%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+          <p style="max-width:90%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
             Reasoning starts from an <b>image retrieval step</b> and then proceeds with textual retrieval to gather factual knowledge. The image serves as the anchor for identifying entities that guide subsequent text-based reasoning.
           </p>
         </div>
 
         <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
           <img src="website/img2/text_initiated.png" alt="Text-Initiated Chain"
-               style="width:75%; border-radius:12px; border:2px solid #333; display:inline-block;">
+               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
           <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Text-Initiated Chain</p>
-          <p style="max-width:75%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+          <p style="max-width:90%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
             Reasoning begins with <b>textual retrieval</b> to obtain key factual information and later incorporates image retrieval for visual verification. This topology reflects workflows where structured knowledge is first identified before grounding it in visual evidence.
           </p>
         </div>
 
         <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
           <img src="website/img2/parallel.png" alt="Parallel Image-Text Fork"
-               style="width:75%; border-radius:12px; border:2px solid #333; display:inline-block;">
+               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
           <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Parallel Image-Text Fork</p>
-          <p style="max-width:75%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+          <p style="max-width:90%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
             Image and text retrieval are performed in <b>parallel branches</b> without strict dependency between steps. The model must coordinate evidence from both modalities and integrate them to produce the final answer.
           </p>
         </div>
 
         <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
           <img src="website/img2/multi.png" alt="Multi-Images Fork"
-               style="width:75%; border-radius:12px; border:2px solid #333; display:inline-block;">
+               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
           <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Multi-Images Fork</p>
-          <p style="max-width:75%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+          <p style="max-width:90%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
             <b>Multiple images</b> are retrieved and compared to extract visual information before turning to textual evidence for factual support. This structure emphasizes cross-image reasoning and visual comparison.
           </p>
         </div>
 
         <div style="min-width:100%; box-sizing:border-box; padding:0 3rem; text-align:center;">
           <img src="website/img2/text_chain.png" alt="Text-Only Chain"
-               style="width:75%; border-radius:12px; border:2px solid #333; display:inline-block;">
+               style="width:90%; border-radius:12px; border:2px solid #333; display:inline-block;">
           <p style="font-weight:700; font-size:1rem; margin-top:0.8rem; margin-bottom:0.3rem; color:#333;">Text-Only Chain</p>
-          <p style="max-width:75%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
+          <p style="max-width:90%; margin:0 auto; font-size:0.88rem; color:#666; line-height:1.6;">
             All reasoning steps rely purely on <b>textual retrieval</b> without using images. It serves as a baseline topology focusing on sequential text-based reasoning.
           </p>
         </div>
