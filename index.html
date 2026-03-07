@@ -308,55 +308,51 @@
 ═══════════════════════════════════════════ -->
 <section class="section hero">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
+    <div class="columns is-centered has-text-centered">
       <div class="column is-11">
 
-        <!-- Title -->
-        <h2 class="title is-3 has-text-centered">
-          <span class="small-caps" style="color: rgb(41, 62, 111)">
-            <b>MC-Search Benchmark</b>
-          </span>
+        <h2 class="title is-3">
+          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search Benchmark</b></span>
         </h2>
 
-        <!-- Intro -->
-        <p class="has-text-justified">
+        <p>
+          We introduce
           <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
-          is a benchmark for <b>multimodal agentic search</b>, where agents must iteratively
-          retrieve and reason over both visual and textual evidence through structured
-          multi-hop chains.
+          as a new benchmark paradigm for multimodal agentic search, requiring agents to
+          reason over both visual and textual evidence through structured, multi-hop chains.
         </p>
 
-        <!-- Benchmark Design -->
-        <h4 class="title is-5" style="margin-top:1.4rem;">Benchmark Design</h4>
-
-        <p class="has-text-justified">
-          The benchmark contains <b>3,333 examples</b> grounded in a large multimodal
-          knowledge base with <b>389K images</b> and <b>784K documents</b>.
-          Each task follows one of five representative reasoning structures:
-          <b>Image-Initiated Chain</b>, <b>Text-Initiated Chain</b>,
-          <b>Parallel Image–Text Fork</b>, <b>Multi-Images Fork</b>, and
-          <b>Text-Only Chain</b>.
+        <h4 class="title is-5"><br>Benchmark Design</h4>
+        <p>
+          The
+          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
+          benchmark encompasses 3,333 high-quality examples with a large-scale offline knowledge base of 389K images and 784K documents.
+          Tasks are constructed around five representative <b>reasoning topologies</b> that mirror
+          real-world agentic search behaviors — <b>Image-Initiated Chain</b>, <b>Text-Initiated Chain</b>, <b>Parallel Image-Text Fork</b>, <b>Multi-Images Fork</b>, and <b>Text-Only Chain</b> — enabling systematic evaluation across varying reasoning depths
+          and modality combinations.
         </p>
 
-        <!-- Figure -->
+        <!-- figure2 moved here, under Benchmark Design -->
         <div style="margin-top:1.5rem;">
           <img src="website/img2/figure2.png" alt="Reasoning Topologies" width="100%"
                style="border-radius:12px;">
-          <p style="margin-top:0.6rem; font-size:0.9rem; color:#777; text-align:center;">
-            The five reasoning topologies in 
-            <span class="small-caps"><b>MC-Search</b></span>.
+          <p style="margin-top:0.6rem; font-size:0.88rem; color:#888; text-align:center;">
+            The five reasoning topologies of
+            <span class="small-caps" style="color:#999;"><b>MC-Search</b></span>,
+            simulating realistic agentic search behaviors via unified pipelines.
           </p>
         </div>
 
-        <!-- Evaluation -->
-        <h4 class="title is-5" style="margin-top:1.5rem;">Evaluation</h4>
-
+        <h4 class="title is-5"><br>Evaluation Metrics</h4>
         <p class="has-text-justified">
-          In addition to answer accuracy, we evaluate reasoning quality using
-          <b>Hit-per-Step (HPS)</b> for retrieval correctness,
-          <b>Rollout Deviation (RD)</b> for reasoning trajectory mismatch,
-          and <b>Planning Accuracy</b> for sub-question decomposition.
-        </p>
+          MC-Search evaluates models beyond final-answer accuracy (F1, LLM-as-Judge) using process-level metrics:
+          </p>
+          
+          <ul style="margin-top:0.5rem;">
+            <li><b>Hit-per-Step (HPS)</b> – measures whether each reasoning step retrieves the correct supporting evidence.</li>
+            <li><b>Rollout Deviation (RD)</b> – quantifies how much the predicted reasoning chain deviates from the gold trajectory.</li>
+            <li><b>Planning Accuracy</b> – evaluates how well agents decompose complex questions into sub-questions.</li>
+          </ul>
 
       </div>
     </div>
