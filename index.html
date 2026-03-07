@@ -344,15 +344,36 @@
         </div>
 
         <h4 class="title is-5"><br>Evaluation Metrics</h4>
-        <p class="has-text-justified">
-          MC-Search evaluates models beyond final-answer accuracy (F1, LLM-as-Judge) using process-level metrics:
-          </p>
-          
-          <ul style="margin-top:0.5rem;">
-            <li><b>Hit-per-Step (HPS)</b> – measures whether each reasoning step retrieves the correct supporting evidence.</li>
-            <li><b>Rollout Deviation (RD)</b> – quantifies how much the predicted reasoning chain deviates from the gold trajectory.</li>
-            <li><b>Planning Accuracy</b> – evaluates how well agents decompose complex questions into sub-questions.</li>
-          </ul>
+        <p>
+          <span class="small-caps" style="color: rgb(41, 62, 111)"><b>MC-Search</b></span>
+          evaluates models beyond final-answer accuracy (F1, LLM-as-Judge) using process-level metrics:
+        </p>
+        <table style="margin-top:0.8rem; border-collapse:collapse; width:100%; text-align:left;">
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">
+              &#8226;&nbsp; Hit-per-Step (HPS)
+            </td>
+            <td style="padding:0.45rem 0; color:#444; font-size:0.97rem; line-height:1.6; border-left: 2px solid #dde3ef; padding-left:1rem;">
+              Measures whether each reasoning step retrieves the correct supporting evidence.
+            </td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">
+              &#8226;&nbsp; Rollout Deviation (RD)
+            </td>
+            <td style="padding:0.45rem 0; color:#444; font-size:0.97rem; line-height:1.6; border-left: 2px solid #dde3ef; padding-left:1rem;">
+              Quantifies how much the predicted reasoning chain deviates from the gold trajectory.
+            </td>
+          </tr>
+          <tr style="vertical-align:top;">
+            <td style="padding:0.45rem 1rem 0.45rem 0; white-space:nowrap; font-weight:700; color:#293e6f;">
+              &#8226;&nbsp; Planning Accuracy
+            </td>
+            <td style="padding:0.45rem 0; color:#444; font-size:0.97rem; line-height:1.6; border-left: 2px solid #dde3ef; padding-left:1rem;">
+              Evaluates how well agents decompose complex questions into sub-questions.
+            </td>
+          </tr>
+        </table>
 
       </div>
     </div>
